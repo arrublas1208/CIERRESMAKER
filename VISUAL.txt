@@ -1,0 +1,295 @@
+import tkinter as tk
+from tkinter import ttk, messagebox
+import json
+
+class ModernButton(tk.Canvas):
+    def __init__(self, parent, text, command=None, bg_color="#2196F3", hover_color="#1976D2", **kwargs):
+        super().__init__(parent, height=40, highlightthickness=0, **kwargs)
+        self.command = command
+        self.bg_color = bg_color
+        self.hover_color = hover_color
+        self.text = text
+        
+        self.rect = self.create_rectangle(0, 0, 200, 40, fill=bg_color, outline="", tags="bg")
+        self.text_id = self.create_text(100, 20, text=text, fill="white", font=("Segoe UI", 10, "bold"), tags="text")
+        
+        self.bind("<Enter>", self.on_enter)
+        self.bind("<Leave>", self.on_leave)
+        self.bind("<Button-1>", self.on_click)
+        
+    def on_enter(self, e):
+        self.itemconfig(self.rect, fill=self.hover_color)
+        
+    def on_leave(self, e):
+        self.itemconfig(self.rect, fill=self.bg_color)
+        
+    def on_click(self, e):
+        if self.command:
+            self.command()
+
+class CierresMakerApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Cierres Maker Pro")
+        self.root.geometry("1600x900")
+        self.root.configure(bg="#0A0E27")
+        
+        # Estilo moderno
+        self.setup_styles()
+        
+        # Header con gradiente
+        self.create_header()
+        
+        # Contenedor principal
+        main_container = tk.Frame(root, bg="#0A0E27")
+        main_container.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+        
+        # Panel izquierdo (sidebar)
+        self.create_sidebar(main_container)
+        
+        # Panel central (contenido principal)
+        self.create_main_content(main_container)
+        
+        # Panel derecho (detalles)
+        self.create_details_panel(main_container)
+        
+    def setup_styles(self):
+        style = ttk.Style()
+        style.theme_use('clam')
+        
+        # Estilo para Treeview
+        style.configure("Treeview",
+                       background="#1E1E2E",
+                       foreground="white",
+                       fieldbackground="#1E1E2E",
+                       borderwidth=0,
+                       font=("Segoe UI", 9))
+        style.map('Treeview', background=[('selected', '#5865F2')])
+        
+        style.configure("Treeview.Heading",
+                       background="#2D2D44",
+                       foreground="white",
+                       relief="flat",
+                       font=("Segoe UI", 10, "bold"))
+        style.map("Treeview.Heading",
+                 background=[('active', '#3D3D54')])
+        
+    def create_header(self):
+        header = tk.Canvas(self.root, height=80, bg="#0A0E27", highlightthickness=0)
+        header.pack(fill=tk.X)
+        
+        # Gradiente simulado
+        header.create_rectangle(0, 0, 1600, 80, fill="#1E1E2E", outline="")
+        header.create_rectangle(0, 78, 1600, 80, fill="#5865F2", outline="")
+        
+        # Logo y título
+        header.create_text(30, 25, text="◉", font=("Arial", 32), fill="#5865F2", anchor="w")
+        header.create_text(70, 25, text="Cierres Maker", font=("Segoe UI", 24, "bold"), fill="white", anchor="w")
+        header.create_text(70, 50, text="Sistema de Gestión de Inventarios", font=("Segoe UI", 10), fill="#A0A0B0", anchor="w")
+        
+        # Indicadores en el header
+        header.create_text(1400, 30, text="1098 Items", font=("Segoe UI", 12, "bold"), fill="#00D9FF", anchor="e")
+        header.create_text(1400, 50, text="Cargados", font=("Segoe UI", 9), fill="#A0A0B0", anchor="e")
+        
+    def create_sidebar(self, parent):
+        sidebar = tk.Frame(parent, bg="#1E1E2E", width=280)
+        sidebar.pack(side=tk.LEFT, fill=tk.Y, padx=(0, 15))
+        sidebar.pack_propagate(False)
+        
+        # Título del sidebar
+        title_frame = tk.Frame(sidebar, bg="#1E1E2E", height=50)
+        title_frame.pack(fill=tk.X, pady=(10, 20))
+        
+        tk.Label(title_frame, text="ACCIONES", font=("Segoe UI", 11, "bold"), 
+                fg="#A0A0B0", bg="#1E1E2E").pack(anchor="w", padx=20)
+        
+        # Botones del sidebar con iconos
+        buttons_data = [
+            ("📁 Cargar JSON", "#5865F2", "#4752C4"),
+            ("💾 Guardar JSON", "#5865F2", "#4752C4"),
+            ("➕ Agregar Fila", "#00D9FF", "#00B8D4"),
+            ("📊 Agregar Columna", "#00D9FF", "#00B8D4"),
+            ("🗑️ Deshacer", "#FF6B6B", "#EE5A52"),
+            ("♻️ Rehacer", "#FF6B6B", "#EE5A52"),
+            ("📋 Copiar Celda", "#FFA500", "#FF8C00"),
+            ("📌 Pegar Celda", "#FFA500", "#FF8C00"),
+            ("🧹 Limpiar", "#9D4EDD", "#8B3FCC"),
+            ("👥 Mover grupo", "#4ECDC4", "#45B8B0"),
+        ]
+        
+        for text, bg, hover in buttons_data:
+            self.create_modern_button(sidebar, text, bg, hover)
+        
+        # Sección de tiempo
+        time_section = tk.Frame(sidebar, bg="#2D2D44", height=180)
+        time_section.pack(fill=tk.X, pady=(30, 0), padx=15)
+        time_section.pack_propagate(False)
+        
+        tk.Label(time_section, text="⏰ ACTUALIZAR IDS", font=("Segoe UI", 10, "bold"),
+                fg="white", bg="#2D2D44").pack(pady=(15, 10))
+        
+        for period in ["Día", "Semana", "Mes", "Año"]:
+            btn = tk.Button(time_section, text=period, bg="#1E1E2E", fg="white",
+                          font=("Segoe UI", 9), relief=tk.FLAT, cursor="hand2",
+                          activebackground="#5865F2", activeforeground="white")
+            btn.pack(fill=tk.X, padx=15, pady=3)
+        
+    def create_modern_button(self, parent, text, bg_color, hover_color):
+        frame = tk.Frame(parent, bg="#1E1E2E")
+        frame.pack(fill=tk.X, padx=15, pady=5)
+        
+        btn = tk.Button(frame, text=text, bg=bg_color, fg="white",
+                       font=("Segoe UI", 10, "bold"), relief=tk.FLAT,
+                       cursor="hand2", height=2, anchor="w", padx=15)
+        btn.pack(fill=tk.X)
+        
+        # Efectos hover
+        btn.bind("<Enter>", lambda e: btn.config(bg=hover_color))
+        btn.bind("<Leave>", lambda e: btn.config(bg=bg_color))
+        
+    def create_main_content(self, parent):
+        content = tk.Frame(parent, bg="#0A0E27")
+        content.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        
+        # Barra de herramientas superior
+        toolbar = tk.Frame(content, bg="#1E1E2E", height=60)
+        toolbar.pack(fill=tk.X, pady=(0, 15))
+        toolbar.pack_propagate(False)
+        
+        # Search bar
+        search_frame = tk.Frame(toolbar, bg="#2D2D44")
+        search_frame.pack(side=tk.LEFT, padx=20, pady=12, fill=tk.Y)
+        
+        tk.Label(search_frame, text="🔍", bg="#2D2D44", fg="white", 
+                font=("Arial", 14)).pack(side=tk.LEFT, padx=(10, 5))
+        
+        search_entry = tk.Entry(search_frame, bg="#2D2D44", fg="white", 
+                               font=("Segoe UI", 10), relief=tk.FLAT,
+                               insertbackground="white", width=30)
+        search_entry.pack(side=tk.LEFT, padx=(0, 10))
+        search_entry.insert(0, "Buscar en datos...")
+        
+        # Filtros rápidos
+        tk.Label(toolbar, text="Filtros:", bg="#1E1E2E", fg="#A0A0B0",
+                font=("Segoe UI", 9)).pack(side=tk.LEFT, padx=(20, 10))
+        
+        for filter_name in ["INVENTARIO", "FRUTO", "INGRESO"]:
+            filter_btn = tk.Button(toolbar, text=filter_name, bg="#2D2D44", 
+                                  fg="white", font=("Segoe UI", 8, "bold"),
+                                  relief=tk.FLAT, cursor="hand2", padx=12, pady=6)
+            filter_btn.pack(side=tk.LEFT, padx=3)
+        
+        # Tabla principal
+        table_frame = tk.Frame(content, bg="#1E1E2E")
+        table_frame.pack(fill=tk.BOTH, expand=True)
+        
+        # Scrollbars
+        vsb = ttk.Scrollbar(table_frame, orient="vertical")
+        hsb = ttk.Scrollbar(table_frame, orient="horizontal")
+        
+        # Treeview
+        columns = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J")
+        self.tree = ttk.Treeview(table_frame, columns=columns, show="tree headings",
+                                yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+        
+        vsb.config(command=self.tree.yview)
+        hsb.config(command=self.tree.xview)
+        
+        # Configurar columnas
+        self.tree.column("#0", width=50, stretch=False)
+        for col in columns:
+            self.tree.heading(col, text=col)
+            self.tree.column(col, width=120, anchor="center")
+        
+        # Posicionar elementos
+        self.tree.grid(row=0, column=0, sticky="nsew")
+        vsb.grid(row=0, column=1, sticky="ns")
+        hsb.grid(row=1, column=0, sticky="ew")
+        
+        table_frame.grid_rowconfigure(0, weight=1)
+        table_frame.grid_columnconfigure(0, weight=1)
+        
+        # Datos de ejemplo
+        self.populate_sample_data()
+        
+    def create_details_panel(self, parent):
+        details = tk.Frame(parent, bg="#1E1E2E", width=320)
+        details.pack(side=tk.RIGHT, fill=tk.Y, padx=(15, 0))
+        details.pack_propagate(False)
+        
+        # Título
+        tk.Label(details, text="DETALLES DE CELDA", font=("Segoe UI", 12, "bold"),
+                fg="white", bg="#1E1E2E").pack(pady=20, padx=20, anchor="w")
+        
+        # Información de la celda
+        info_items = [
+            ("Label:", "ARIO INCIAL FRUTO (KG) MES"),
+            ("Código:", "CM_00001LUKE"),
+            ("Posición:", "E:3"),
+            ("Id form:", "7"),
+            ("Tipo:", "2"),
+            ("Deci:", "0"),
+        ]
+        
+        for label, value in info_items:
+            item_frame = tk.Frame(details, bg="#2D2D44", height=50)
+            item_frame.pack(fill=tk.X, padx=20, pady=5)
+            item_frame.pack_propagate(False)
+            
+            tk.Label(item_frame, text=label, font=("Segoe UI", 9, "bold"),
+                    fg="#A0A0B0", bg="#2D2D44").pack(anchor="w", padx=15, pady=(8, 0))
+            tk.Label(item_frame, text=value, font=("Segoe UI", 10),
+                    fg="white", bg="#2D2D44").pack(anchor="w", padx=15)
+        
+        # Botón de valor
+        valor_frame = tk.Frame(details, bg="#5865F2", height=70)
+        valor_frame.pack(fill=tk.X, padx=20, pady=(20, 10))
+        valor_frame.pack_propagate(False)
+        
+        tk.Label(valor_frame, text="VALOR", font=("Segoe UI", 10, "bold"),
+                fg="white", bg="#5865F2").pack(pady=(10, 0))
+        tk.Label(valor_frame, text="—", font=("Segoe UI", 16, "bold"),
+                fg="white", bg="#5865F2").pack()
+        
+        # Estadísticas
+        stats_frame = tk.Frame(details, bg="#2D2D44")
+        stats_frame.pack(fill=tk.X, padx=20, pady=(30, 0))
+        
+        tk.Label(stats_frame, text="📊 ESTADÍSTICAS", font=("Segoe UI", 10, "bold"),
+                fg="white", bg="#2D2D44").pack(pady=15)
+        
+        stats = [
+            ("Total Formularios", "1098", "#00D9FF"),
+            ("IDs Únicos", "847", "#00FF88"),
+            ("Última Actualización", "Hoy", "#FFA500"),
+        ]
+        
+        for stat_label, stat_value, color in stats:
+            stat_item = tk.Frame(stats_frame, bg="#1E1E2E")
+            stat_item.pack(fill=tk.X, padx=15, pady=5)
+            
+            tk.Label(stat_item, text=stat_label, font=("Segoe UI", 8),
+                    fg="#A0A0B0", bg="#1E1E2E").pack(anchor="w", padx=10, pady=(5, 0))
+            tk.Label(stat_item, text=stat_value, font=("Segoe UI", 12, "bold"),
+                    fg=color, bg="#1E1E2E").pack(anchor="w", padx=10, pady=(0, 5))
+        
+    def populate_sample_data(self):
+        # Datos de ejemplo basados en la imagen
+        sample_rows = [
+            ("1", "", "", "", "", "", "", "", "", "", ""),
+            ("2", "", "", "", "", "", "", "", "", "", ""),
+            ("3", "", "", "", "", "FECHA CIER...", "", "", "", "", ""),
+            ("7", "", "", "INVENTARIO...", "INVENTARIO...", "INVENTARIO...", "", "", "ACIDEZ DIA", "ACIDEZ MES", "ACIDEZ AÑO"),
+            ("8", "", "", "FRUTO...", "FRUTO...", "FRUTO...", "", "", "HUMEDAD DIA", "HUMEDAD MES", "HUMEDAD AÑO"),
+            ("9", "", "", "INGRESO...", "INGRESO...", "INGRESO...", "", "", "IMPUREZAS...", "IMPUREZAS...", "IMPUREZAS..."),
+            ("10", "", "", "INGRESO...", "INGRESO...", "INGRESO...", "", "", "DOBI DIA", "DOBI MES", "DOBI AÑO"),
+        ]
+        
+        for row in sample_rows:
+            self.tree.insert("", "end", text=row[0], values=row[1:])
+
+# Ejecutar aplicación
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = CierresMakerApp(root)
+    root.mainloop()
