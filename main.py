@@ -3,7 +3,7 @@ import json
 import copy
 from dataclasses import dataclass
 from typing import List, Dict, Optional, Tuple
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QPushButton, QFileDialog, QLabel, QSplitter, QMessageBox, QFormLayout, QLineEdit, QGroupBox, QCheckBox, QScrollArea, QTabWidget, QSpinBox, QAbstractItemView
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QPushButton, QFileDialog, QLabel, QSplitter, QMessageBox, QFormLayout, QLineEdit, QGroupBox, QCheckBox, QScrollArea, QTabWidget, QSpinBox, QAbstractItemView, QDialog, QDialogButtonBox
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor, QFont, QKeySequence, QShortcut
 
@@ -88,6 +88,7 @@ class GridEditor(QMainWindow):
         QShortcut(QKeySequence("Ctrl+Shift+Z"), self, self.redo)
         QShortcut(QKeySequence("Ctrl+C"), self, self.copy_selection)
         QShortcut(QKeySequence("Ctrl+V"), self, self.paste_selection)
+        QShortcut(QKeySequence("Delete"), self, self.delete_selection)
 
         self.move_mode = QCheckBox("Mover grupo con clic")
         self.move_mode.setChecked(False)
@@ -107,6 +108,9 @@ class GridEditor(QMainWindow):
         self.ids_box.setLayout(ids_form)
         self.update_ids_btn = QPushButton("Actualizar IDs")
         self.update_ids_btn.clicked.connect(self.on_update_ids)
+        
+        self.config_ids_btn = QPushButton("Configurar IDs Globales")
+        self.config_ids_btn.clicked.connect(self.prompt_global_ids)
 
         self.detail_box = QGroupBox("Detalle celda")
         self.det_label = QLineEdit()
@@ -202,6 +206,7 @@ class GridEditor(QMainWindow):
         ids_layout = QVBoxLayout(ids_panel)
         ids_layout.addWidget(self.ids_box)
         ids_layout.addWidget(self.update_ids_btn)
+        ids_layout.addWidget(self.config_ids_btn)
 
         # Left sidebar (actions + list)
         left_controls = QWidget()
@@ -294,23 +299,40 @@ class GridEditor(QMainWindow):
         self.table = self.tables[self.current_period]
     
     def setup_tabs_from_items(self):
-        present = set()
-        for d in self.items:
-            p = self.get_period(d) or "dia"
-            present.add(p)
-        order = ["dia", "mes", "anio", "semana"]
-        # remove all tabs and rebuild to satisfy ordering and presence
+        order = ["dia", "semana", "mes", "anio"]
+        
+        # Ensure all tables exist
+        for p in order:
+            self.init_table_for_period(p)
+            
+        # Check if tabs are already in correct order
+        if self.tabs.count() == len(order):
+            correct = True
+            for i, p in enumerate(order):
+                if self.tabs.widget(i).property("period") != p:
+                    correct = False
+                    break
+            if correct:
+                return
+
+        # Rebuild tab bar order without destroying widgets
+        current_p = self.current_period
+        
         while self.tabs.count() > 0:
             self.tabs.removeTab(0)
-        self.tables.clear()
+            
         for p in order:
-            if p in present or (not present and p == "dia"):
-                self.init_table_for_period(p)
-        # set current period to first tab
-        if self.tabs.count() > 0:
-            w = self.tabs.widget(0)
-            self.current_period = w.property("period")
-            self.table = self.tables[self.current_period]
+            # init_table_for_period adds to tab if it creates it, 
+            # but if it exists in self.tables, it does nothing.
+            # So we manually add it here if it exists.
+            if p in self.tables:
+                self.tabs.addTab(self.tables[p], self.period_title(p))
+                
+        # Restore active tab
+        for i in range(self.tabs.count()):
+            if self.tabs.widget(i).property("period") == current_p:
+                self.tabs.setCurrentIndex(i)
+                break
     
     def on_tab_changed(self, idx: int):
         if idx < 0:
@@ -350,7 +372,12 @@ class GridEditor(QMainWindow):
         self.items = copy.deepcopy(state['items'])
         self.global_ids = copy.deepcopy(state['global_ids'])
         self.items_by_codigo = {d.codigo: d for d in self.items}
-        self.pos_to_item = {d.posicion: d for d in self.items}
+        
+        self.pos_to_item = {}
+        for d in self.items:
+            p = self.get_period(d) or "dia"
+            self.pos_to_item[(d.posicion, p)] = d
+            
         self.build_groups()
         self.refresh_list()
         self.render_from_items()
@@ -434,6 +461,9 @@ class GridEditor(QMainWindow):
             if w.property("period") == p:
                 self.tabs.setCurrentIndex(i)
                 break
+        
+        QApplication.processEvents()
+
         tbl = self.tables.get(p)
         if tbl and not tbl.item(r, c):
             tbl.setItem(r, c, QTableWidgetItem(""))
@@ -449,6 +479,7 @@ class GridEditor(QMainWindow):
                 tbl.scrollToItem(tbl.item(r, c), QAbstractItemView.PositionAtCenter)
             
             self.table = tbl
+            tbl.setFocus()
             
         self.show_cell_details(r, c)
         self.current_label.setText(f"Seleccionado: {item.codigo} | Fila {r} Col {c}")
@@ -469,7 +500,7 @@ class GridEditor(QMainWindow):
         r = self.table.currentRow()
         c = self.table.currentColumn()
         pos = fmt_pos(r, c)
-        item = self.pos_to_item.get(pos)
+        item = self.get_item_at(pos, self.current_period)
         if item:
             self.copied_data = {
                 "label": item.label,
@@ -496,7 +527,7 @@ class GridEditor(QMainWindow):
         self.save_state()
         
         pos = fmt_pos(r, c)
-        item = self.pos_to_item.get(pos)
+        item = self.pos_to_item.get((pos, self.current_period))
         
         data = self.copied_data
         
@@ -511,7 +542,7 @@ class GridEditor(QMainWindow):
                 valor=data["valor"]
             )
             self.items.append(item)
-            self.pos_to_item[pos] = item
+            self.pos_to_item[(pos, self.current_period)] = item
             if item.codigo:
                 self.items_by_codigo[item.codigo] = item
         else:
@@ -529,26 +560,93 @@ class GridEditor(QMainWindow):
         self.refresh_list()
         self.update_duplicates()
 
+    def delete_selection(self):
+        r = self.table.currentRow()
+        c = self.table.currentColumn()
+        if r < 0 or c < 0:
+            return
+            
+        pos = fmt_pos(r, c)
+        item = self.get_item_at(pos, self.current_period)
+        
+        if not item:
+            # Clear visual cell just in case
+            self.table.setItem(r, c, QTableWidgetItem(""))
+            return
+            
+        self.save_state()
+        
+        # Remove from main list
+        if item in self.items:
+            self.items.remove(item)
+            
+        # Remove from lookup maps
+        if item.codigo and self.items_by_codigo.get(item.codigo) == item:
+            del self.items_by_codigo[item.codigo]
+            
+        self.pos_to_item.pop((pos, self.current_period), None)
+        
+        # Clear UI
+        self.table.setItem(r, c, QTableWidgetItem(""))
+        self.show_cell_details(r, c)
+        self.refresh_list()
+        self.update_duplicates()
+        
+        if hasattr(self, "count_label") and self.count_label:
+            self.count_label.setText(f"{len(self.items)} Items | Cargados")
+
     def update_duplicates(self):
         counts = {}
+        # Count normalized codes from source data
         for d in self.items:
             if d.codigo:
-                counts[d.codigo] = counts.get(d.codigo, 0) + 1
+                c_norm = d.codigo.strip().upper()
+                if c_norm:
+                    counts[c_norm] = counts.get(c_norm, 0) + 1
         
-        for d in self.items:
-            r, c = parse_pos(d.posicion)
-            p = self.get_period(d) or "dia"
-            tbl = self.tables.get(p)
-            itm = tbl.item(r, c) if tbl else None
-            if itm:
-                if d.codigo and counts[d.codigo] > 1:
-                    itm.setBackground(QColor("#ffcccc")) # Light red
-                    itm.setForeground(QColor("black"))
-                    itm.setToolTip(f"Código duplicado: {d.codigo}")
-                else:
-                    itm.setBackground(QColor("#1E1E2E")) # Restore default
-                    itm.setForeground(QColor("white"))
-                    itm.setToolTip("")
+        # Use the maintained map directly
+        item_map = self.pos_to_item
+            
+        # Update ALL visual items in all tables based on the code they carry
+        # IMPROVED: Look up the actual item to ensure we use the latest code
+        # and clear "ghost" items that shouldn't be there.
+        for period, tbl in self.tables.items():
+            for r in range(tbl.rowCount()):
+                for c in range(tbl.columnCount()):
+                    itm = tbl.item(r, c)
+                    
+                    # Find the actual item for this cell and period
+                    pos = fmt_pos(r, c)
+                    real_item = item_map.get((pos, period))
+                    
+                    if real_item:
+                        # Ensure visual item exists
+                        if not itm:
+                            itm = QTableWidgetItem(real_item.label)
+                            tbl.setItem(r, c, itm)
+                        
+                        # Update data and visual state
+                        code_val = real_item.codigo
+                        itm.setData(Qt.UserRole, code_val)
+                        
+                        # Sync label if needed (optional but good for consistency)
+                        if itm.text() != real_item.label:
+                            itm.setText(real_item.label)
+                            
+                        c_norm = code_val.strip().upper() if code_val else ""
+                        
+                        if c_norm and counts.get(c_norm, 0) > 1:
+                            itm.setBackground(QColor("#FF0000")) # Strong red
+                            itm.setForeground(QColor("white"))
+                            itm.setToolTip(f"Código duplicado: {code_val}")
+                        else:
+                            itm.setBackground(QColor("#1E1E2E")) # Restore default
+                            itm.setForeground(QColor("white"))
+                            itm.setToolTip("")
+                    else:
+                        # If no item belongs here, but we have a visual item, it's a ghost. Clear it.
+                        if itm and itm.text():
+                            tbl.setItem(r, c, QTableWidgetItem(""))
 
     def on_row_height_change(self, val: int):
         for tbl in self.tables.values():
@@ -566,10 +664,13 @@ class GridEditor(QMainWindow):
             if p != self.current_period:
                 continue
                 
-            # Match against code or label
-            full_str = f"{d.codigo} | {d.label}"
+            # Match against code, label, or value
+            full_str = f"{d.codigo} | {d.label} | {d.valor}"
             if not text or text in full_str.lower():
-                item = QListWidgetItem(full_str)
+                disp = f"{d.codigo} | {d.label}"
+                if d.valor:
+                    disp += f" | {d.valor}"
+                item = QListWidgetItem(disp)
                 item.setData(Qt.UserRole, idx)
                 self.list.addItem(item)
     
@@ -644,9 +745,22 @@ class GridEditor(QMainWindow):
                 pass
         self.items = items
         self.items_by_codigo = {d.codigo: d for d in self.items}
-        self.pos_to_item = {d.posicion: d for d in self.items}
-        self.build_groups()
+        
         self.extract_global_ids()
+        
+        # Rebuild pos_to_item with (pos, period) keys to support overlapping positions
+        self.pos_to_item = {}
+        for d in self.items:
+            p = self.get_period(d) or "dia"
+            self.pos_to_item[(d.posicion, p)] = d
+            
+        self.build_groups()
+        
+        # Check if any global IDs are missing OR just prompt always as requested
+        # User requested: "al inicio quiero que pregunte por el id form... para que se filtre"
+        # So we force prompt here.
+        self.prompt_global_ids(force_filter=True)
+            
         self.refresh_list()
         self.render_from_items()
         self.undo_stack.clear()
@@ -656,6 +770,64 @@ class GridEditor(QMainWindow):
             self.count_label.setText(f"{len(self.items)} Items | Cargados")
         if not self.items:
             QMessageBox.information(self, "Aviso", "No se encontraron items válidos en el JSON")
+
+    def prompt_global_ids(self, force_filter=False):
+        dlg = QDialog(self)
+        dlg.setWindowTitle("Configurar IDs Globales")
+        layout = QVBoxLayout(dlg)
+        
+        form = QFormLayout()
+        inputs = {}
+        for k in ["dia", "semana", "mes", "anio"]:
+            inp = QLineEdit()
+            val = self.global_ids.get(k)
+            if val is not None:
+                inp.setText(str(val))
+            inputs[k] = inp
+            label = {"dia": "Día", "semana": "Semana", "mes": "Mes", "anio": "Año"}.get(k, k)
+            form.addRow(f"ID {label}:", inp)
+            
+        layout.addLayout(form)
+        
+        btns = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        btns.accepted.connect(dlg.accept)
+        btns.rejected.connect(dlg.reject)
+        layout.addWidget(btns)
+        
+        if dlg.exec() == QDialog.Accepted:
+            for k, inp in inputs.items():
+                txt = inp.text().strip()
+                if txt.isdigit():
+                    self.global_ids[k] = int(txt)
+                else:
+                    self.global_ids[k] = None
+            
+            if force_filter:
+                # Filter items to only keep those matching the configured IDs
+                filtered_items = []
+                # Collect valid IDs
+                valid_ids = {v for v in self.global_ids.values() if v is not None}
+                
+                for d in self.items:
+                    # If item's ID matches one of the valid global IDs, keep it.
+                    # Or if the item's period is detected via other means, check if that period is allowed.
+                    
+                    # Strict filtering based on ID match as requested: "filtre cada valor... para que solo salgan los datos de este tipo"
+                    if d.id_form in valid_ids:
+                        filtered_items.append(d)
+                
+                self.items = filtered_items
+                self.items_by_codigo = {d.codigo: d for d in self.items}
+                
+                self.pos_to_item = {}
+                for d in self.items:
+                    p = self.get_period(d) or "dia"
+                    self.pos_to_item[(d.posicion, p)] = d
+                    
+                self.build_groups()
+                QMessageBox.information(self, "Info", f"Datos filtrados. {len(self.items)} items retenidos.")
+
+            self.apply_global_ids_to_root()
 
     def on_save_json(self):
         if not self.items:
@@ -802,7 +974,10 @@ class GridEditor(QMainWindow):
                 it.posicion = fmt_pos(new_r, target_c)
                 self.place_item(it)
                 
-        self.pos_to_item = {d.posicion: d for d in self.items}
+        self.pos_to_item = {}
+        for d in self.items:
+            p = self.get_period(d) or "dia"
+            self.pos_to_item[(d.posicion, p)] = d
 
     def fill_id_fields(self, item: Optional[CellItem]):
         if not item:
@@ -930,6 +1105,7 @@ class GridEditor(QMainWindow):
 
     def on_insert_row(self):
         idx = self.table.currentRow()
+        col = self.table.currentColumn()
         if idx < 0:
             return
         self.save_state()
@@ -942,13 +1118,29 @@ class GridEditor(QMainWindow):
             updated.append(d)
         self.items = updated
         self.items_by_codigo = {d.codigo: d for d in self.items}
-        self.pos_to_item = {d.posicion: d for d in self.items}
+        
+        self.pos_to_item = {}
+        for d in self.items:
+            p = self.get_period(d) or "dia"
+            self.pos_to_item[(d.posicion, p)] = d
+            
         self.render_from_items()
-        for tbl in self.tables.values():
-            for c in range(tbl.columnCount()):
-                tbl.setItem(idx, c, QTableWidgetItem(""))
+        
+        # Restore selection to the same relative position (shifted down)
+        # Note: idx was the row BEFORE insertion. The new empty row is at idx.
+        # The content that was at idx is now at idx+1.
+        # User usually wants to continue working near where they were.
+        # Let's select the newly created empty row at the same column.
+        
+        # Force table update to ensure rows exist
+        QApplication.processEvents()
+        
+        if self.table.rowCount() > idx:
+            self.table.setCurrentCell(idx, col if col >= 0 else 0)
+            self.table.setFocus()
 
     def on_insert_col(self):
+        row = self.table.currentRow()
         idx = self.table.currentColumn()
         if idx < 0:
             return
@@ -962,11 +1154,23 @@ class GridEditor(QMainWindow):
             updated.append(d)
         self.items = updated
         self.items_by_codigo = {d.codigo: d for d in self.items}
-        self.pos_to_item = {d.posicion: d for d in self.items}
+        
+        self.pos_to_item = {}
+        for d in self.items:
+            p = self.get_period(d) or "dia"
+            self.pos_to_item[(d.posicion, p)] = d
+            
         self.render_from_items()
-        for tbl in self.tables.values():
-            for r in range(tbl.rowCount()):
-                tbl.setItem(r, idx, QTableWidgetItem(""))
+        
+        # Restore selection to the newly created column
+        QApplication.processEvents()
+        
+        if self.table.columnCount() > idx:
+            self.table.setCurrentCell(row if row >= 0 else 0, idx)
+            self.table.setFocus()
+
+    def get_item_at(self, pos: str, period: str) -> Optional[CellItem]:
+        return self.pos_to_item.get((pos, period))
 
     def on_cell_changed(self, r: int, c: int):
         if self.updating:
@@ -974,7 +1178,9 @@ class GridEditor(QMainWindow):
         itm = self.table.item(r, c)
         txt = itm.text().strip() if itm else ""
         pos = fmt_pos(r, c)
-        existing = self.pos_to_item.get(pos)
+        
+        # IMPROVED: Direct lookup with period awareness
+        existing = self.pos_to_item.get((pos, self.current_period))
         
         changed = False
         if not txt:
@@ -995,14 +1201,21 @@ class GridEditor(QMainWindow):
                     self.items.remove(existing)
                 except ValueError:
                     pass
-                self.pos_to_item.pop(pos, None)
+                self.pos_to_item.pop((pos, self.current_period), None)
                 self.items_by_codigo.pop(existing.codigo, None)
             return
         if existing:
             existing.label = txt
         else:
+            # Determine appropriate ID for the current period
+            current_id = 0
+            if self.current_period in self.global_ids:
+                val = self.global_ids[self.current_period]
+                if val is not None:
+                    current_id = val
+                    
             new = CellItem(
-                id_form=0,
+                id_form=current_id,
                 label=txt,
                 codigo="",
                 tipo=0,
@@ -1011,7 +1224,37 @@ class GridEditor(QMainWindow):
                 valor="",
             )
             self.items.append(new)
-            self.pos_to_item[pos] = new
+            self.pos_to_item[(pos, self.current_period)] = new
+            
+            # Sync creation to other periods if they have valid IDs
+            # "cuando agregue valores en dia lo agregue en semana mes año pero exactamente igual"
+            # "y salgan en rojo hasta que modifique el codigo"
+            if current_id > 0: # Only sync if current item has a valid ID context
+                # PREVENT RECURSION: We are about to modify tables programmatically.
+                self.updating = True
+                try:
+                    for p in ["dia", "semana", "mes", "anio"]:
+                        if p == self.current_period:
+                            continue
+                        
+                        target_id = self.global_ids.get(p)
+                        # "si en el dialogo... uno esta vacio... omitira y no hara nada"
+                        if target_id is None:
+                            continue
+                            
+                        # "que se cree en semana pero con su respectivo id de semana y no con el de dia"
+                        clone = copy.deepcopy(new)
+                        clone.id_form = target_id
+                        
+                        self.items.append(clone)
+                        # CRITICAL: Register clone in the map so it doesn't "disappear" or get overwritten
+                        self.pos_to_item[(pos, p)] = clone
+                        
+                        # Force visual creation of the clone in its table so update_duplicates can find it
+                        self.place_item(clone)
+                finally:
+                    self.updating = False
+            
         self.build_groups()
         self.show_cell_details(r, c)
         self.update_duplicates()
@@ -1019,7 +1262,10 @@ class GridEditor(QMainWindow):
 
     def show_cell_details(self, r: int, c: int):
         pos = fmt_pos(r, c)
-        it = self.pos_to_item.get(pos)
+        
+        # IMPROVED: Find item strictly for the current period
+        it = self.pos_to_item.get((pos, self.current_period))
+
         if it:
             self.det_label.setText(it.label)
             self.det_codigo.setText(it.codigo)
@@ -1045,14 +1291,16 @@ class GridEditor(QMainWindow):
             return
         
         pos = fmt_pos(r, c)
-        item = self.pos_to_item.get(pos)
+        
+        # IMPROVED: Find item strictly for the current period
+        item = self.pos_to_item.get((pos, self.current_period))
         
         def safe_int(s):
             try: return int(s)
             except: return 0
             
         new_label = self.det_label.text()
-        new_code = self.det_codigo.text()
+        new_code = self.det_codigo.text().strip().upper() # Force upper and strip
         new_id = safe_int(self.det_id.text())
         new_tipo = safe_int(self.det_tipo.text())
         new_deci = safe_int(self.det_deci.text())
@@ -1063,6 +1311,11 @@ class GridEditor(QMainWindow):
                 return
             
             self.save_state()
+            
+            # If user didn't provide ID, try to guess from current period
+            if new_id == 0:
+                new_id = self.global_ids.get(self.current_period, 0)
+
             item = CellItem(
                 id_form=new_id,
                 label=new_label,
@@ -1073,7 +1326,11 @@ class GridEditor(QMainWindow):
                 valor=new_valor
             )
             self.items.append(item)
-            self.pos_to_item[pos] = item
+            # Only update pos_to_item if it's the first item at this pos (or force it?)
+            # For multi-period support, pos_to_item is ambiguous.
+            # But we set it for legacy support.
+            self.pos_to_item[(pos, self.current_period)] = item
+            
             if new_code:
                 self.items_by_codigo[new_code] = item
             
@@ -1100,13 +1357,9 @@ class GridEditor(QMainWindow):
 
         self.save_state()
         
-        # Identify siblings BEFORE applying changes
-        base = self.normalize_label(item.label)
-        p = self.get_period(item) or "dia"
-        siblings = []
-        if base in self.groups and p in self.groups[base]:
-            siblings = [x for x in self.groups[base][p] if x is not item]
-
+        # DISABLE SIBLING SYNC - items are independent after creation
+        # siblings = [] ...
+        
         old_code = item.codigo
         if old_code != new_code:
             if old_code in self.items_by_codigo:
@@ -1122,13 +1375,8 @@ class GridEditor(QMainWindow):
         item.deci = new_deci
         item.valor = new_valor
         
-        # Update siblings (everything EXCEPT code and id_form)
-        for sib in siblings:
-            sib.label = new_label
-            sib.tipo = new_tipo
-            sib.deci = new_deci
-            sib.valor = new_valor
-            # Do NOT sync codigo or id_form
+        # DISABLED SIBLING UPDATE LOOP
+        # for sib in siblings: ...
         
         self.updating = True
         qitem = self.table.item(r, c)
