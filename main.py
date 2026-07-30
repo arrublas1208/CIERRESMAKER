@@ -1,11 +1,12 @@
 import sys
 import json
 import copy
+import re
 from dataclasses import dataclass
 from typing import List, Dict, Optional, Tuple
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QPushButton, QFileDialog, QLabel, QSplitter, QMessageBox, QFormLayout, QLineEdit, QGroupBox, QCheckBox, QScrollArea, QTabWidget, QSpinBox, QAbstractItemView, QDialog, QDialogButtonBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QPushButton, QFileDialog, QLabel, QSplitter, QMessageBox, QFormLayout, QLineEdit, QGroupBox, QCheckBox, QScrollArea, QTabWidget, QSpinBox, QAbstractItemView, QDialog, QDialogButtonBox, QColorDialog, QMenu, QInputDialog, QTableWidgetSelectionRange, QFrame
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QColor, QFont, QKeySequence, QShortcut
+from PySide6.QtGui import QColor, QFont, QKeySequence, QShortcut, QBrush, QAction
 
 @dataclass
 class CellItem:
@@ -45,10 +46,12 @@ class GridEditor(QMainWindow):
         self.groups: Dict[str, Dict[str, CellItem]] = {}
         self.root_data = None
         self.global_ids: Dict[str, Optional[int]] = {"dia": None, "semana": None, "mes": None, "anio": None}
+        self.json_periods: List[str] = []  # períodos que realmente existen en el JSON cargado
         self.updating = False
         self.undo_stack = []
         self.redo_stack = []
         self.copied_data: Optional[Dict] = None
+        self.user_highlights: Dict[Tuple[str, str], QColor] = {}
 
         self.tabs = QTabWidget()
         self.tabs.currentChanged.connect(self.on_tab_changed)
@@ -82,13 +85,45 @@ class GridEditor(QMainWindow):
         
         self.clear_btn = QPushButton("Limpiar")
         self.clear_btn.clicked.connect(self.on_clear_all)
-        
+
+        self.import_excel_btn = QPushButton("Importar Excel")
+        self.import_excel_btn.clicked.connect(self.on_import_excel)
+
         QShortcut(QKeySequence("Ctrl+Z"), self, self.undo)
         QShortcut(QKeySequence("Ctrl+Y"), self, self.redo)
         QShortcut(QKeySequence("Ctrl+Shift+Z"), self, self.redo)
         QShortcut(QKeySequence("Ctrl+C"), self, self.copy_selection)
         QShortcut(QKeySequence("Ctrl+V"), self, self.paste_selection)
         QShortcut(QKeySequence("Delete"), self, self.delete_selection)
+        self._move_shortcuts = []
+        for seq, fn in [
+            ("Alt+Up", lambda: self.move_selected_block(-1, 0)),
+            ("Alt+Down", lambda: self.move_selected_block(1, 0)),
+            ("Alt+Left", lambda: self.move_selected_block(0, -1)),
+            ("Alt+Right", lambda: self.move_selected_block(0, 1)),
+            ("Ctrl+Alt+Up", lambda: self.move_selected_block(-1, 0)),
+            ("Ctrl+Alt+Down", lambda: self.move_selected_block(1, 0)),
+            ("Ctrl+Alt+Left", lambda: self.move_selected_block(0, -1)),
+            ("Ctrl+Alt+Right", lambda: self.move_selected_block(0, 1)),
+        ]:
+            sc = QShortcut(QKeySequence(seq), self)
+            sc.setContext(Qt.ApplicationShortcut)
+            sc.activated.connect(fn)
+            self._move_shortcuts.append(sc)
+
+        bar = self.menuBar()
+        menu_res = bar.addMenu("Resaltar")
+        act_resaltar = QAction("Resaltar celda...", self)
+        act_resaltar.triggered.connect(self.highlight_current_cell)
+        act_quitar = QAction("Quitar resaltado", self)
+        act_quitar.triggered.connect(self.clear_highlight_current_cell)
+        menu_res.addAction(act_resaltar)
+        menu_res.addAction(act_quitar)
+        
+        menu_mov = bar.addMenu("Mover")
+        act_mov = QAction("Mover bloque...", self)
+        act_mov.triggered.connect(self.move_selected_block_prompt)
+        menu_mov.addAction(act_mov)
 
         self.move_mode = QCheckBox("Mover grupo con clic")
         self.move_mode.setChecked(False)
@@ -129,9 +164,13 @@ class GridEditor(QMainWindow):
         self.det_deci.editingFinished.connect(self.on_detail_edited)
         self.det_valor.editingFinished.connect(self.on_detail_edited)
 
+        self.suggest_code_btn = QPushButton("Sugerir Código")
+        self.suggest_code_btn.clicked.connect(self.on_suggest_codigo)
+
         det_form = QFormLayout()
         det_form.addRow("Label", self.det_label)
         det_form.addRow("Código", self.det_codigo)
+        det_form.addRow("", self.suggest_code_btn)
         det_form.addRow("Posición", self.det_posicion)
         det_form.addRow("Id form", self.det_id)
         det_form.addRow("Tipo", self.det_tipo)
@@ -139,17 +178,27 @@ class GridEditor(QMainWindow):
         det_form.addRow("Valor", self.det_valor)
         self.detail_box.setLayout(det_form)
 
-        # Modernize button labels (visual only)
+        # Textos e identidad visual de botones
         self.load_btn.setText("📁 Cargar JSON")
         self.save_btn.setText("💾 Guardar JSON")
+        self.save_btn.setObjectName("btn_success")
+        self.import_excel_btn.setText("📥 Importar Excel")
+        self.import_excel_btn.setObjectName("btn_import")
         self.add_row_btn.setText("➕ Agregar Fila")
+        self.add_row_btn.setObjectName("btn_edit")
         self.add_col_btn.setText("📊 Agregar Columna")
-        self.undo_btn.setText("🗑️ Deshacer")
-        self.redo_btn.setText("♻️ Rehacer")
-        self.copy_btn.setText("📋 Copiar Celda")
-        self.paste_btn.setText("📌 Pegar Celda")
-        self.clear_btn.setText("🧹 Limpiar")
-        self.move_mode.setText("👥 Mover grupo con clic")
+        self.add_col_btn.setObjectName("btn_edit")
+        self.copy_btn.setText("📋 Copiar")
+        self.copy_btn.setObjectName("btn_secondary")
+        self.paste_btn.setText("📌 Pegar")
+        self.paste_btn.setObjectName("btn_secondary")
+        self.undo_btn.setText("↩ Deshacer")
+        self.undo_btn.setObjectName("btn_secondary")
+        self.redo_btn.setText("↪ Rehacer")
+        self.redo_btn.setObjectName("btn_secondary")
+        self.clear_btn.setText("🗑 Limpiar Todo")
+        self.clear_btn.setObjectName("btn_danger")
+        self.move_mode.setText("↔ Mover grupo con clic")
 
         # Header
         header = QWidget()
@@ -208,20 +257,35 @@ class GridEditor(QMainWindow):
         ids_layout.addWidget(self.update_ids_btn)
         ids_layout.addWidget(self.config_ids_btn)
 
+        def sidebar_sep():
+            line = QFrame()
+            line.setFrameShape(QFrame.HLine)
+            line.setObjectName("sidebar_sep")
+            return line
+
         # Left sidebar (actions + list)
         left_controls = QWidget()
         left_controls_layout = QVBoxLayout(left_controls)
         left_controls_layout.setContentsMargins(8, 8, 8, 8)
+        left_controls_layout.setSpacing(5)
+        # Grupo: Archivo
         left_controls_layout.addWidget(self.load_btn)
         left_controls_layout.addWidget(self.save_btn)
+        left_controls_layout.addWidget(self.import_excel_btn)
+        left_controls_layout.addWidget(sidebar_sep())
+        # Grupo: Edición
         left_controls_layout.addWidget(self.add_row_btn)
         left_controls_layout.addWidget(self.add_col_btn)
-        left_controls_layout.addWidget(self.undo_btn)
-        left_controls_layout.addWidget(self.redo_btn)
         left_controls_layout.addWidget(self.copy_btn)
         left_controls_layout.addWidget(self.paste_btn)
-        left_controls_layout.addWidget(self.clear_btn)
+        left_controls_layout.addWidget(sidebar_sep())
+        # Grupo: Historial
+        left_controls_layout.addWidget(self.undo_btn)
+        left_controls_layout.addWidget(self.redo_btn)
+        left_controls_layout.addWidget(sidebar_sep())
+        # Grupo: Opciones + zona peligrosa
         left_controls_layout.addWidget(self.move_mode)
+        left_controls_layout.addWidget(self.clear_btn)
         left_controls_layout.addWidget(self.current_label)
 
         left_splitter = QSplitter(Qt.Vertical)
@@ -262,23 +326,165 @@ class GridEditor(QMainWindow):
         root_layout.addWidget(toolbar)
         root_layout.addWidget(splitter, 1)
         self.setCentralWidget(root)
-        self.setStyleSheet(
-            "QWidget{background:#0A0E27; color:#fff;}"
-            "QScrollArea{background:#0A0E27; border:0;}"
-            "QSplitter::handle{background:#1E1E2E;}"
-            "QGroupBox{background:#1E1E2E; border:1px solid #2D2D44; padding:8px; margin-top:10px;}"
-            "QGroupBox::title{subcontrol-origin: margin; left:10px; padding:0 6px;}"
-            "QTableWidget{background:#1E1E2E; color:#fff; gridline-color:#2D2D44; selection-background-color: #5865F2; selection-color: #fff;}"
-            "QTableWidget::item:selected{background:#5865F2; color:#fff;}"
-            "QTableWidget::item:selected:!active{background:#5865F2; color:#fff;}"
-            "QTableWidget::item{padding:4px; border:0px;}"
-            "QHeaderView::section{background:#2D2D44; color:#fff; border:0; padding:6px;}"
-            "QPushButton{background:#5865F2; color:#fff; border:0; padding:8px; font-weight:bold;}"
-            "QPushButton:hover{background:#4752C4;}"
-            "QListWidget{background:#1E1E2E; color:#fff; border:0;}"
-            "QLineEdit{background:#2D2D44; color:#fff; border:0; padding:8px;}"
-            "QLabel{color:#fff;}"
-        )
+        self.setStyleSheet("""
+            /* === BASE === */
+            QWidget { background: #0A0E27; color: #E0E0F0; font-family: 'Segoe UI', Arial; font-size: 13px; }
+            QMainWindow { background: #0A0E27; }
+
+            /* === SCROLLBARS === */
+            QScrollBar:vertical { background: #13172B; width: 7px; border-radius: 3px; }
+            QScrollBar::handle:vertical { background: #3D3D5C; border-radius: 3px; min-height: 24px; }
+            QScrollBar::handle:vertical:hover { background: #5865F2; }
+            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; }
+            QScrollBar:horizontal { background: #13172B; height: 7px; border-radius: 3px; }
+            QScrollBar::handle:horizontal { background: #3D3D5C; border-radius: 3px; min-width: 24px; }
+            QScrollBar::handle:horizontal:hover { background: #5865F2; }
+            QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { width: 0px; }
+
+            /* === SPLITTER === */
+            QSplitter::handle { background: #1E1E2E; }
+            QSplitter::handle:hover { background: #5865F2; }
+
+            /* === GROUPBOX === */
+            QGroupBox {
+                background: #1E1E2E;
+                border: 1px solid #2D2D44;
+                border-radius: 7px;
+                padding: 12px 8px 8px 8px;
+                margin-top: 14px;
+                font-weight: bold;
+                font-size: 10px;
+                color: #7B8EC8;
+                letter-spacing: 1px;
+            }
+            QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 6px; }
+
+            /* === BUTTONS — base === */
+            QPushButton {
+                background: #5865F2;
+                color: #fff;
+                border: none;
+                border-radius: 6px;
+                padding: 8px 12px;
+                font-weight: bold;
+                font-size: 12px;
+            }
+            QPushButton:hover { background: #4752C4; }
+            QPushButton:pressed { background: #3A42A8; }
+            QPushButton:disabled { background: #2D2D44; color: #55556A; }
+
+            /* === BUTTONS — variantes === */
+            QPushButton#btn_success { background: #2E7D52; }
+            QPushButton#btn_success:hover { background: #256643; }
+
+            QPushButton#btn_import { background: #2A5298; }
+            QPushButton#btn_import:hover { background: #1E3D72; }
+
+            QPushButton#btn_edit { background: #37537A; }
+            QPushButton#btn_edit:hover { background: #2A3F5E; }
+
+            QPushButton#btn_secondary { background: #2D2D44; color: #A0A0C0; }
+            QPushButton#btn_secondary:hover { background: #3D3D5C; color: #fff; }
+
+            QPushButton#btn_danger { background: #7B2020; color: #FFB0B0; }
+            QPushButton#btn_danger:hover { background: #A32828; color: #fff; }
+
+            /* === INPUTS === */
+            QLineEdit {
+                background: #1E2240;
+                color: #E0E0F0;
+                border: 1px solid #2D2D54;
+                border-radius: 5px;
+                padding: 6px 8px;
+            }
+            QLineEdit:focus { border: 1px solid #5865F2; }
+            QLineEdit:read-only { background: #13172B; color: #7B8EC8; border-color: #1E2240; }
+
+            /* === SPINBOX === */
+            QSpinBox {
+                background: #1E2240;
+                color: #E0E0F0;
+                border: 1px solid #2D2D54;
+                border-radius: 5px;
+                padding: 4px 6px;
+            }
+            QSpinBox:focus { border: 1px solid #5865F2; }
+            QSpinBox::up-button, QSpinBox::down-button {
+                background: #2D2D54;
+                border: none;
+                width: 16px;
+                border-radius: 3px;
+            }
+            QSpinBox::up-button:hover, QSpinBox::down-button:hover { background: #5865F2; }
+
+            /* === CHECKBOX === */
+            QCheckBox { color: #A0A0C0; spacing: 8px; }
+            QCheckBox::indicator {
+                width: 15px; height: 15px;
+                border-radius: 4px;
+                border: 2px solid #3D3D5C;
+                background: #1E2240;
+            }
+            QCheckBox::indicator:checked { background: #5865F2; border-color: #5865F2; }
+            QCheckBox::indicator:hover { border-color: #5865F2; }
+
+            /* === LIST === */
+            QListWidget {
+                background: #13172B;
+                color: #C8C8E0;
+                border: 1px solid #2D2D44;
+                border-radius: 6px;
+                outline: none;
+            }
+            QListWidget::item { padding: 5px 8px; border-radius: 3px; }
+            QListWidget::item:selected { background: #5865F2; color: #fff; }
+            QListWidget::item:hover:!selected { background: #1E2240; }
+
+            /* === TABS === */
+            QTabWidget::pane { border: 1px solid #2D2D44; background: #0A0E27; border-radius: 0px; }
+            QTabBar::tab {
+                background: #13172B;
+                color: #7B8EC8;
+                padding: 9px 22px;
+                border: none;
+                font-weight: bold;
+                font-size: 12px;
+                min-width: 80px;
+            }
+            QTabBar::tab:selected { background: #5865F2; color: #fff; }
+            QTabBar::tab:hover:!selected { background: #1E2240; color: #C0C0E0; }
+
+            /* === HEADERS tabla === */
+            QHeaderView::section {
+                background: #1E2240;
+                color: #7B8EC8;
+                border: none;
+                border-right: 1px solid #2D2D44;
+                border-bottom: 1px solid #2D2D44;
+                padding: 5px;
+                font-weight: bold;
+                font-size: 11px;
+            }
+
+            /* === SCROLL AREA === */
+            QScrollArea { background: #0A0E27; border: none; }
+
+            /* === MENU BAR === */
+            QMenuBar { background: #0A0E27; color: #A0A0C0; border-bottom: 1px solid #1E2240; padding: 2px; }
+            QMenuBar::item:selected { background: #1E2240; color: #fff; border-radius: 4px; }
+            QMenu { background: #1E1E2E; color: #E0E0F0; border: 1px solid #2D2D44; border-radius: 6px; padding: 4px; }
+            QMenu::item { padding: 6px 20px; border-radius: 4px; }
+            QMenu::item:selected { background: #5865F2; }
+
+            /* === TOOLTIP === */
+            QToolTip { background: #2D2D44; color: #fff; border: 1px solid #5865F2; border-radius: 4px; padding: 4px 8px; }
+
+            /* === LABEL === */
+            QLabel { color: #E0E0F0; background: transparent; }
+
+            /* === SEPARATOR === */
+            QFrame#sidebar_sep { color: #2D2D44; background: #2D2D44; border: none; max-height: 1px; }
+        """)
     
     def period_title(self, p: str) -> str:
         return {"dia": "Día", "semana": "Semana", "mes": "Mes", "anio": "Año"}.get(p, p.capitalize())
@@ -288,51 +494,77 @@ class GridEditor(QMainWindow):
             return
         tbl = QTableWidget()
         tbl.setSelectionBehavior(QTableWidget.SelectItems)
-        tbl.setSelectionMode(QTableWidget.SingleSelection)
+        tbl.setSelectionMode(QTableWidget.ExtendedSelection)
         tbl.setFont(QFont("Arial", 11))
+        tbl.setAlternatingRowColors(True)
+        tbl.setStyleSheet(
+            "QTableWidget{background:#0D1128; alternate-background-color:#111630; color:#D8D8F0;"
+            " gridline-color:#1E2240; selection-background-color:rgba(88,101,242,70);"
+            " selection-color:#fff; border:none; outline:none;}"
+            "QTableWidget::item{padding:3px;}"
+            "QTableWidget::item:selected{background:rgba(88,101,242,70); color:#fff; border:1px solid #5865F2;}"
+            "QTableWidget::item:focus{border:1px solid #5865F2; background:rgba(88,101,242,50);}"
+        )
         tbl.setProperty("period", period)
         tbl.cellClicked.connect(lambda r, c, p=period: self.on_cell_clicked_tab(p, r, c))
         tbl.cellChanged.connect(lambda r, c, p=period: self.on_cell_changed_tab(p, r, c))
+        tbl.setContextMenuPolicy(Qt.CustomContextMenu)
+        tbl.customContextMenuRequested.connect(lambda pos, p=period, t=tbl: self.on_table_context_menu(p, t, pos))
         self.tables[period] = tbl
         self.tabs.addTab(tbl, self.period_title(period))
         # Point helpers to the active table
         self.table = self.tables[self.current_period]
     
     def setup_tabs_from_items(self):
-        order = ["dia", "semana", "mes", "anio"]
-        
-        # Ensure all tables exist
+        # Solo crear tabs para períodos que realmente existen en el JSON
+        active = self._active_periods()
+        order = active if active else ["dia"]
+
+        # Crear tablas solo para períodos activos
         for p in order:
             self.init_table_for_period(p)
-            
-        # Check if tabs are already in correct order
+
+        # Eliminar tabs de períodos que ya no están activos
+        to_remove = [p for p in list(self.tables.keys()) if p not in order]
+        for p in to_remove:
+            for i in range(self.tabs.count()):
+                w = self.tabs.widget(i)
+                if w and w.property("period") == p:
+                    self.tabs.removeTab(i)
+                    break
+
+        # Verificar si el orden ya es correcto
         if self.tabs.count() == len(order):
             correct = True
             for i, p in enumerate(order):
-                if self.tabs.widget(i).property("period") != p:
+                w = self.tabs.widget(i)
+                if not w or w.property("period") != p:
                     correct = False
                     break
             if correct:
                 return
 
-        # Rebuild tab bar order without destroying widgets
+        # Reconstruir orden de tabs sin destruir widgets
         current_p = self.current_period
-        
+
         while self.tabs.count() > 0:
             self.tabs.removeTab(0)
-            
+
         for p in order:
-            # init_table_for_period adds to tab if it creates it, 
-            # but if it exists in self.tables, it does nothing.
-            # So we manually add it here if it exists.
             if p in self.tables:
                 self.tabs.addTab(self.tables[p], self.period_title(p))
-                
-        # Restore active tab
+
+        # Restaurar tab activo (si el período activo ya no existe, usar el primero)
+        restored = False
         for i in range(self.tabs.count()):
             if self.tabs.widget(i).property("period") == current_p:
                 self.tabs.setCurrentIndex(i)
+                restored = True
                 break
+        if not restored and self.tabs.count() > 0:
+            self.tabs.setCurrentIndex(0)
+            self.current_period = self.tabs.widget(0).property("period")
+            self.table = self.tables[self.current_period]
     
     def on_tab_changed(self, idx: int):
         if idx < 0:
@@ -347,6 +579,8 @@ class GridEditor(QMainWindow):
         # Update search results for the new period
         if hasattr(self, "search_entry"):
             self.on_search_changed(self.search_entry.text())
+        
+        self.update_duplicates()
     
     def on_cell_clicked_tab(self, period: str, r0: int, c0: int):
         self.current_period = period
@@ -497,23 +731,45 @@ class GridEditor(QMainWindow):
             self.update_duplicates()
 
     def copy_selection(self):
-        r = self.table.currentRow()
-        c = self.table.currentColumn()
-        pos = fmt_pos(r, c)
-        item = self.get_item_at(pos, self.current_period)
-        if item:
-            self.copied_data = {
-                "label": item.label,
-                "codigo": item.codigo,
-                "id_form": item.id_form,
-                "tipo": item.tipo,
-                "deci": item.deci,
-                "valor": item.valor
-            }
-            self.current_label.setText(f"Copiado: {item.codigo}")
-        else:
+        ranges = self.table.selectedRanges()
+        if not ranges:
             self.copied_data = None
             self.current_label.setText("Nada para copiar")
+            return
+        if len(ranges) > 1:
+            self.copied_data = None
+            self.current_label.setText("Selecciona un solo bloque para copiar")
+            return
+        rg = ranges[0]
+        top, left, bottom, right = rg.topRow(), rg.leftColumn(), rg.bottomRow(), rg.rightColumn()
+        rows = bottom - top + 1
+        cols = right - left + 1
+        block = []
+        for rr in range(rows):
+            row_data = []
+            for cc in range(cols):
+                pos = fmt_pos(top + rr, left + cc)
+                item = self.get_item_at(pos, self.current_period)
+                if item:
+                    row_data.append({
+                        "label": item.label,
+                        "codigo": item.codigo,
+                        "id_form": item.id_form,
+                        "tipo": item.tipo,
+                        "deci": item.deci,
+                        "valor": item.valor
+                    })
+                else:
+                    row_data.append(None)
+            block.append(row_data)
+        self.copied_data = {
+            "kind": "range",
+            "period": self.current_period,
+            "rows": rows,
+            "cols": cols,
+            "block": block
+        }
+        self.current_label.setText(f"Copiado: {rows}x{cols}")
 
     def paste_selection(self):
         if not hasattr(self, 'copied_data') or not self.copied_data:
@@ -525,37 +781,122 @@ class GridEditor(QMainWindow):
             return
             
         self.save_state()
-        
+
+        data = self.copied_data
+        if isinstance(data, dict) and data.get("kind") == "range":
+            rows = int(data.get("rows", 0))
+            cols = int(data.get("cols", 0))
+            block = data.get("block") or []
+            if rows <= 0 or cols <= 0:
+                return
+            needed_r = r + rows
+            needed_c = c + cols
+            for tbl in self.tables.values():
+                if tbl.rowCount() < needed_r:
+                    tbl.setRowCount(needed_r)
+                if tbl.columnCount() < needed_c:
+                    tbl.setColumnCount(needed_c)
+
+            target_id = self.global_ids.get(self.current_period)
+            if target_id is None:
+                target_id = 0
+
+            self.updating = True
+            try:
+                for rr in range(rows):
+                    if rr >= len(block):
+                        continue
+                    for cc in range(cols):
+                        if cc >= len(block[rr]):
+                            continue
+                        cell_data = block[rr][cc]
+                        if not cell_data:
+                            continue
+                        dr = r + rr
+                        dc = c + cc
+                        pos = fmt_pos(dr, dc)
+                        existing = self.pos_to_item.get((pos, self.current_period))
+                        new_code = (cell_data.get("codigo") or "").strip().upper()
+                        if existing:
+                            old_code = (existing.codigo or "").strip().upper()
+                            if old_code and old_code in self.items_by_codigo and self.items_by_codigo.get(old_code) == existing and old_code != new_code:
+                                del self.items_by_codigo[old_code]
+                            existing.label = cell_data.get("label", "")
+                            existing.codigo = new_code
+                            existing.id_form = int(target_id) if target_id else int(cell_data.get("id_form", 0) or 0)
+                            existing.tipo = int(cell_data.get("tipo", 0) or 0)
+                            existing.deci = int(cell_data.get("deci", 0) or 0)
+                            existing.valor = cell_data.get("valor", "")
+                            if existing.codigo:
+                                self.items_by_codigo[existing.codigo] = existing
+                            item_obj = existing
+                        else:
+                            item_obj = CellItem(
+                                id_form=int(target_id) if target_id else int(cell_data.get("id_form", 0) or 0),
+                                label=cell_data.get("label", ""),
+                                codigo=new_code,
+                                tipo=int(cell_data.get("tipo", 0) or 0),
+                                deci=int(cell_data.get("deci", 0) or 0),
+                                posicion=pos,
+                                valor=cell_data.get("valor", "")
+                            )
+                            self.items.append(item_obj)
+                            self.pos_to_item[(pos, self.current_period)] = item_obj
+                            if item_obj.codigo:
+                                self.items_by_codigo[item_obj.codigo] = item_obj
+
+                        qitem = self.table.item(dr, dc)
+                        if not qitem:
+                            qitem = QTableWidgetItem(item_obj.label)
+                            self.table.setItem(dr, dc, qitem)
+                        else:
+                            qitem.setText(item_obj.label)
+                        qitem.setData(Qt.UserRole, item_obj.codigo)
+            finally:
+                self.updating = False
+
+            self.build_groups()
+            self.refresh_list()
+            self.update_duplicates()
+            self.show_cell_details(r, c)
+            return
+
         pos = fmt_pos(r, c)
         item = self.pos_to_item.get((pos, self.current_period))
-        
-        data = self.copied_data
-        
+        if not isinstance(data, dict):
+            return
+        if "label" not in data and "codigo" not in data:
+            return
+
         if not item:
             item = CellItem(
-                id_form=data["id_form"],
-                label=data["label"],
-                codigo=data["codigo"],
-                tipo=data["tipo"],
-                deci=data["deci"],
+                id_form=int(data.get("id_form", 0) or 0),
+                label=data.get("label", ""),
+                codigo=(data.get("codigo") or "").strip().upper(),
+                tipo=int(data.get("tipo", 0) or 0),
+                deci=int(data.get("deci", 0) or 0),
                 posicion=pos,
-                valor=data["valor"]
+                valor=data.get("valor", "")
             )
             self.items.append(item)
             self.pos_to_item[(pos, self.current_period)] = item
             if item.codigo:
                 self.items_by_codigo[item.codigo] = item
         else:
-            item.label = data["label"]
-            item.codigo = data["codigo"]
-            item.id_form = data["id_form"]
-            item.tipo = data["tipo"]
-            item.deci = data["deci"]
-            item.valor = data["valor"]
+            old_code = (item.codigo or "").strip().upper()
+            new_code = (data.get("codigo") or "").strip().upper()
+            if old_code and old_code in self.items_by_codigo and self.items_by_codigo.get(old_code) == item and old_code != new_code:
+                del self.items_by_codigo[old_code]
+            item.label = data.get("label", "")
+            item.codigo = new_code
+            item.id_form = int(data.get("id_form", 0) or 0)
+            item.tipo = int(data.get("tipo", 0) or 0)
+            item.deci = int(data.get("deci", 0) or 0)
+            item.valor = data.get("valor", "")
             if item.codigo:
                 self.items_by_codigo[item.codigo] = item
 
-        self.place_item(item) # Re-render cell
+        self.place_item(item)
         self.show_cell_details(r, c)
         self.refresh_list()
         self.update_duplicates()
@@ -596,62 +937,224 @@ class GridEditor(QMainWindow):
             self.count_label.setText(f"{len(self.items)} Items | Cargados")
 
     def update_duplicates(self):
-        counts = {}
-        # Count normalized codes from source data
-        for d in self.items:
-            if d.codigo:
-                c_norm = d.codigo.strip().upper()
-                if c_norm:
-                    counts[c_norm] = counts.get(c_norm, 0) + 1
-        
-        # Use the maintained map directly
-        item_map = self.pos_to_item
-            
-        # Update ALL visual items in all tables based on the code they carry
-        # IMPROVED: Look up the actual item to ensure we use the latest code
-        # and clear "ghost" items that shouldn't be there.
-        for period, tbl in self.tables.items():
-            for r in range(tbl.rowCount()):
-                for c in range(tbl.columnCount()):
-                    itm = tbl.item(r, c)
-                    
-                    # Find the actual item for this cell and period
-                    pos = fmt_pos(r, c)
-                    real_item = item_map.get((pos, period))
-                    
-                    if real_item:
-                        # Ensure visual item exists
-                        if not itm:
-                            itm = QTableWidgetItem(real_item.label)
-                            tbl.setItem(r, c, itm)
+        prev_state = self.updating
+        self.updating = True
+        try:
+            # Contar cuantas veces aparece cada codigo (ignorando vacios)
+            tmp_counts: Dict[str, int] = {}
+            for d in self.items:
+                code = (d.codigo or "").strip().upper()
+                if not code:
+                    continue
+                tmp_counts[code] = tmp_counts.get(code, 0) + 1
+            self.duplicate_codes = {k for k, v in tmp_counts.items() if v > 1}
+
+            COLOR_OK        = QColor(0, 0, 0, 0)   # transparente — deja actuar al stylesheet
+            COLOR_TEXT_OK   = QColor("#D8D8F0")   # texto claro para tema oscuro
+            COLOR_DUP       = QColor("#7A5C00")   # amarillo oscuro para duplicados
+            COLOR_TEXT_DUP  = QColor("#FFE580")   # texto dorado sobre fondo oscuro
+
+            # Colorear celda a celda en todas las tablas
+            for period, tbl in self.tables.items():
+                for r in range(tbl.rowCount()):
+                    for c in range(tbl.columnCount()):
+                        qitem = tbl.item(r, c)
+                        pos = fmt_pos(r, c)
                         
-                        # Update data and visual state
-                        code_val = real_item.codigo
-                        itm.setData(Qt.UserRole, code_val)
+                        # Obtener resaltado manual y datos
+                        hl = self.user_highlights.get((pos, period))
+                        cell = self.pos_to_item.get((pos, period))
                         
-                        # Sync label if needed (optional but good for consistency)
-                        if itm.text() != real_item.label:
-                            itm.setText(real_item.label)
+                        # Si hay algo que pintar pero no hay item visual, crearlo
+                        if (hl or (cell and cell.codigo)) and not qitem:
+                            label = cell.label if cell else ""
+                            qitem = QTableWidgetItem(label)
+                            tbl.setItem(r, c, qitem)
                             
-                        c_norm = code_val.strip().upper() if code_val else ""
-                        
-                        if c_norm and counts.get(c_norm, 0) > 1:
-                            itm.setBackground(QColor("#FF0000")) # Strong red
-                            itm.setForeground(QColor("white"))
-                            itm.setToolTip(f"Código duplicado: {code_val}")
+                        # Si sigue sin haber item (celda vacia sin highlight), saltar
+                        if not qitem:
+                            continue
+
+                        if cell:
+                            code_norm = (cell.codigo or "").strip().upper()
+                            if hl:
+                                qitem.setBackground(QBrush(hl))
+                                qitem.setForeground(QBrush(COLOR_TEXT_OK))
+                                qitem.setData(Qt.BackgroundRole, QBrush(hl))
+                                qitem.setData(Qt.ForegroundRole, QBrush(COLOR_TEXT_OK))
+                                qitem.setToolTip("Resaltado manual")
+                            elif code_norm and code_norm in self.duplicate_codes:
+                                qitem.setBackground(QBrush(COLOR_DUP))
+                                qitem.setForeground(QBrush(COLOR_TEXT_DUP))
+                                qitem.setData(Qt.BackgroundRole, QBrush(COLOR_DUP))
+                                qitem.setData(Qt.ForegroundRole, QBrush(COLOR_TEXT_DUP))
+                                qitem.setToolTip(f"Código duplicado: {cell.codigo}")
+                            else:
+                                qitem.setBackground(QBrush(COLOR_OK))
+                                qitem.setForeground(QBrush(COLOR_TEXT_OK))
+                                qitem.setData(Qt.BackgroundRole, QBrush(COLOR_OK))
+                                qitem.setData(Qt.ForegroundRole, QBrush(COLOR_TEXT_OK))
+                                qitem.setToolTip("")
                         else:
-                            itm.setBackground(QColor("#1E1E2E")) # Restore default
-                            itm.setForeground(QColor("white"))
-                            itm.setToolTip("")
-                    else:
-                        # If no item belongs here, but we have a visual item, it's a ghost. Clear it.
-                        if itm and itm.text():
-                            tbl.setItem(r, c, QTableWidgetItem(""))
+                            # Celda vacia pero con highlight manual
+                            if hl:
+                                qitem.setBackground(QBrush(hl))
+                                qitem.setForeground(QBrush(COLOR_TEXT_OK))
+                                qitem.setData(Qt.BackgroundRole, QBrush(hl))
+                                qitem.setData(Qt.ForegroundRole, QBrush(COLOR_TEXT_OK))
+                                qitem.setToolTip("Resaltado manual")
+                            else:
+                                qitem.setBackground(QBrush(COLOR_OK))
+                                qitem.setForeground(QBrush(COLOR_TEXT_OK))
+                                qitem.setData(Qt.BackgroundRole, QBrush(COLOR_OK))
+                                qitem.setData(Qt.ForegroundRole, QBrush(COLOR_TEXT_OK))
+                                qitem.setToolTip("")
+        finally:
+            self.updating = prev_state
 
     def on_row_height_change(self, val: int):
         for tbl in self.tables.values():
             for r in range(tbl.rowCount()):
                 tbl.setRowHeight(r, val)
+
+    def highlight_current_cell(self):
+        r = self.table.currentRow()
+        c = self.table.currentColumn()
+        if r < 0 or c < 0:
+            return
+        color = QColorDialog.getColor(QColor("#FFD35A"), self, "Elegir color")
+        if not color.isValid():
+            return
+        pos = fmt_pos(r, c)
+        self.user_highlights[(pos, self.current_period)] = color
+        self.update_duplicates()
+
+    def clear_highlight_current_cell(self):
+        r = self.table.currentRow()
+        c = self.table.currentColumn()
+        if r < 0 or c < 0:
+            return
+        pos = fmt_pos(r, c)
+        self.user_highlights.pop((pos, self.current_period), None)
+        self.update_duplicates()
+
+    def move_selected_block_prompt(self):
+        dr, ok = QInputDialog.getInt(self, "Mover bloque", "Filas (negativo sube):", 0, -10000, 10000, 1)
+        if not ok:
+            return
+        dc, ok = QInputDialog.getInt(self, "Mover bloque", "Columnas (negativo izquierda):", 0, -10000, 10000, 1)
+        if not ok:
+            return
+        if dr == 0 and dc == 0:
+            return
+        self.move_selected_block(dr, dc)
+
+    def move_selected_block(self, dr: int, dc: int):
+        ranges = self.table.selectedRanges()
+        if not ranges:
+            return
+        if len(ranges) > 1:
+            QMessageBox.information(self, "Mover", "Selecciona un solo bloque para mover.")
+            return
+        rg = ranges[0]
+        top, left, bottom, right = rg.topRow(), rg.leftColumn(), rg.bottomRow(), rg.rightColumn()
+        period = self.current_period
+
+        moving = []
+        selected_keys = set()
+        for r in range(top, bottom + 1):
+            for c in range(left, right + 1):
+                pos = fmt_pos(r, c)
+                key = (pos, period)
+                it = self.pos_to_item.get(key)
+                if it:
+                    moving.append((r, c, it))
+                    selected_keys.add(key)
+
+        if not moving:
+            return
+
+        dest_keys = set()
+        max_r = 0
+        max_c = 0
+        for r, c, it in moving:
+            nr = r + dr
+            nc = c + dc
+            if nr < 0 or nc < 0:
+                QMessageBox.information(self, "Mover", "El bloque no puede salir del borde superior/izquierdo.")
+                return
+            npos = fmt_pos(nr, nc)
+            nkey = (npos, period)
+            dest_keys.add(nkey)
+            max_r = max(max_r, nr)
+            max_c = max(max_c, nc)
+
+        for nkey in dest_keys:
+            if nkey in self.pos_to_item and nkey not in selected_keys:
+                QMessageBox.information(self, "Mover", "El bloque choca con celdas ocupadas.")
+                return
+
+        for tbl in self.tables.values():
+            if tbl.rowCount() <= max_r:
+                tbl.setRowCount(max_r + 1)
+            if tbl.columnCount() <= max_c:
+                tbl.setColumnCount(max_c + 1)
+
+        self.save_state()
+        prev = self.updating
+        self.updating = True
+        # Bloquear señales de la tabla activa durante todo el bloque de movimiento.
+        # Esto evita que cellChanged se emita (sincrónica o diferidamente) y
+        # dispare la lógica de sync hacia Mes/Año en las nuevas posiciones.
+        self.table.blockSignals(True)
+        try:
+            moved_qitems = {}
+            for r, c, it in moving:
+                qitem = self.table.takeItem(r, c)
+                moved_qitems[(r, c)] = qitem
+                old_key = (it.posicion, period)
+                self.pos_to_item.pop(old_key, None)
+
+            for r, c, it in moving:
+                nr = r + dr
+                nc = c + dc
+                it.posicion = fmt_pos(nr, nc)
+                self.pos_to_item[(it.posicion, period)] = it
+
+                qitem = moved_qitems.get((r, c))
+                if not qitem:
+                    qitem = QTableWidgetItem(it.label)
+                qitem.setText(it.label)
+                qitem.setData(Qt.UserRole, it.codigo)
+                self.table.setItem(nr, nc, qitem)
+        finally:
+            self.table.blockSignals(False)
+            self.updating = prev
+
+        self.build_groups()
+        self.refresh_list()
+        self.update_duplicates()
+
+        self.table.clearSelection()
+        new_range = QTableWidgetSelectionRange(top + dr, left + dc, bottom + dr, right + dc)
+        self.table.setRangeSelected(new_range, True)
+
+    def on_table_context_menu(self, period: str, tbl: QTableWidget, pos):
+        idx = tbl.indexAt(pos)
+        if idx.isValid():
+            tbl.setCurrentCell(idx.row(), idx.column())
+        gpos = tbl.viewport().mapToGlobal(pos)
+        menu = QMenu(self)
+        a1 = QAction("Resaltar celda...", self)
+        a2 = QAction("Quitar resaltado", self)
+        a3 = QAction("Mover bloque...", self)
+        a1.triggered.connect(self.highlight_current_cell)
+        a2.triggered.connect(self.clear_highlight_current_cell)
+        a3.triggered.connect(self.move_selected_block_prompt)
+        menu.addAction(a1)
+        menu.addAction(a2)
+        menu.addAction(a3)
+        menu.exec(gpos)
 
     def on_search_changed(self, text: str):
         text = text.lower().strip()
@@ -836,11 +1339,261 @@ class GridEditor(QMainWindow):
         if not path:
             return
         try:
-            data = [d.__dict__ for d in self.items]
+            if self.root_data is not None and isinstance(self.root_data, dict) and "datosAG" in self.root_data:
+                self.apply_global_ids_to_root()
+                out = copy.deepcopy(self.root_data)
+                out["datosAG"] = self._rebuild_datosAG()
+                data = out
+            else:
+                data = self._sorted_items_list()
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
         except Exception as e:
             QMessageBox.critical(self, "Error", str(e))
+
+    def _rebuild_datosAG(self) -> list:
+        """Rebuild datosAG as list-of-lists grouped by id_form.
+
+        Ordenamiento: (sección_de_columna, fila, columna).
+        Una sección nueva comienza cuando el salto entre columnas consecutivas es > 2.
+        Ej: cols {2,3,4} = sección 0, cols {7,8,9} = sección 1.
+        Esto evita que bloques de columnas distintos se mezclen en el JSON.
+        """
+        groups: Dict[int, list] = {}
+        for d in self.items:
+            groups.setdefault(d.id_form, []).append(d)
+
+        # Orden de sub-arrays: períodos configurados primero, resto por id_form
+        seen: set = set()
+        id_order = []
+        for p in ["dia", "semana", "mes", "anio"]:
+            pid = self.global_ids.get(p)
+            if pid is not None and pid in groups and pid not in seen:
+                id_order.append(pid)
+                seen.add(pid)
+        for pid in sorted(groups.keys()):
+            if pid not in seen:
+                id_order.append(pid)
+
+        datosAG = []
+        for pid in id_order:
+            grp = groups[pid]
+
+            # Detectar secciones de columnas: salto > 2 = nueva sección
+            all_cols = sorted(set(parse_pos(d.posicion)[1] for d in grp))
+            col_to_sec: Dict[int, int] = {}
+            if all_cols:
+                sec_idx = 0
+                col_to_sec[all_cols[0]] = 0
+                for i in range(1, len(all_cols)):
+                    if all_cols[i] - all_cols[i - 1] > 2:
+                        sec_idx += 1
+                    col_to_sec[all_cols[i]] = sec_idx
+
+            def _sort_key(d: CellItem, _m: Dict[int, int] = col_to_sec) -> tuple:
+                r, c = parse_pos(d.posicion)
+                return (_m.get(c, 999), r, c)
+
+            sorted_grp = sorted(grp, key=_sort_key)
+            datosAG.append([
+                {"id_form": d.id_form, "label": d.label, "codigo": d.codigo,
+                 "tipo": d.tipo, "deci": d.deci, "posicion": d.posicion, "valor": d.valor}
+                for d in sorted_grp
+            ])
+        return datosAG
+
+    def _sorted_items_list(self) -> list:
+        """Flat sorted list of items used when root_data has no datosAG."""
+        def sort_key(d):
+            r, c = parse_pos(d.posicion)
+            return (d.id_form, r, c)
+        return [d.__dict__ for d in sorted(self.items, key=sort_key)]
+
+    def _extract_client_code(self) -> Optional[str]:
+        """Extract client suffix from existing codes (e.g., 'LUKE' from 'CD_00001LUKE')."""
+        for d in self.items:
+            m = re.match(r'^(?:CD|CS|CM|CA)_\d+([A-Z]+)$', d.codigo.strip().upper())
+            if m:
+                return m.group(1)
+        return None
+
+    def _next_codigo(self, period: str) -> str:
+        """Generate next available codigo for a period."""
+        prefix_map = {"dia": "CD", "semana": "CS", "mes": "CM", "anio": "CA"}
+        prefix = prefix_map.get(period, "CD")
+        client = self._extract_client_code() or ""
+        max_seq = 0
+        for d in self.items:
+            m = re.match(rf'^{prefix}_(\d+)', d.codigo.strip().upper())
+            if m:
+                max_seq = max(max_seq, int(m.group(1)))
+        return f"{prefix}_{max_seq + 1:05d}{client}"
+
+    def _validate_and_highlight_codigo(self, code: str):
+        """Validate codigo format and highlight det_codigo if invalid."""
+        valid = re.match(r'^(CD|CS|CM|CA)_(\d+)([A-Z]*)$', code.strip().upper())
+        if not valid:
+            self.det_codigo.setStyleSheet("background:#CC0000; color:#fff; border:0; padding:8px;")
+            self.det_codigo.setToolTip("Formato esperado: {CD|CS|CM|CA}_{numero}{cliente}")
+            return
+        suffix = valid.group(3)
+        existing = self._extract_client_code()
+        if existing and suffix and suffix != existing:
+            self.det_codigo.setStyleSheet("background:#CC8800; color:#fff; border:0; padding:8px;")
+            self.det_codigo.setToolTip(f"Sufijo '{suffix}' no coincide con el cliente existente '{existing}'")
+        else:
+            self.det_codigo.setStyleSheet("background:#2D2D44; color:#fff; border:0; padding:8px;")
+            self.det_codigo.setToolTip("")
+
+    def on_suggest_codigo(self):
+        """Fill det_codigo with next available code for current period."""
+        suggested = self._next_codigo(self.current_period)
+        self.det_codigo.setText(suggested)
+        self._validate_and_highlight_codigo(suggested)
+
+    def on_import_excel(self):
+        """Import Excel structure for a new client."""
+        try:
+            import openpyxl
+        except ImportError:
+            QMessageBox.critical(self, "Error", "openpyxl no está instalado.\nEjecuta: pip install openpyxl")
+            return
+
+        path, _ = QFileDialog.getOpenFileName(self, "Importar Excel", "", "Excel (*.xlsx *.xlsm)")
+        if not path:
+            return
+
+        dlg = QDialog(self)
+        dlg.setWindowTitle("Configurar Nuevo Cliente")
+        layout = QVBoxLayout(dlg)
+        form = QFormLayout()
+        client_inp = QLineEdit()
+        client_inp.setPlaceholderText("ej: LUKE")
+        sheet_inp = QLineEdit()
+        sheet_inp.setText("1")
+        id_dia_inp = QLineEdit()
+        id_sem_inp = QLineEdit()
+        id_mes_inp = QLineEdit()
+        id_anio_inp = QLineEdit()
+        form.addRow("Código cliente (sufijo):", client_inp)
+        form.addRow("Hoja (nombre o número):", sheet_inp)
+        form.addRow("ID form Día:", id_dia_inp)
+        form.addRow("ID form Semana:", id_sem_inp)
+        form.addRow("ID form Mes:", id_mes_inp)
+        form.addRow("ID form Año:", id_anio_inp)
+        layout.addLayout(form)
+        btns = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        btns.accepted.connect(dlg.accept)
+        btns.rejected.connect(dlg.reject)
+        layout.addWidget(btns)
+
+        if dlg.exec() != QDialog.Accepted:
+            return
+
+        client_code = client_inp.text().strip().upper()
+        if not client_code:
+            QMessageBox.warning(self, "Error", "Debe ingresar un código de cliente.")
+            return
+
+        def to_int(s):
+            try:
+                return int(s.strip())
+            except Exception:
+                return None
+
+        ids = {
+            "dia": to_int(id_dia_inp.text()),
+            "semana": to_int(id_sem_inp.text()),
+            "mes": to_int(id_mes_inp.text()),
+            "anio": to_int(id_anio_inp.text()),
+        }
+        configured_periods = [p for p in ["dia", "semana", "mes", "anio"] if ids.get(p) is not None]
+        if not configured_periods:
+            QMessageBox.warning(self, "Error", "Debe configurar al menos un ID de formulario.")
+            return
+
+        try:
+            wb = openpyxl.load_workbook(path, data_only=True)
+            sheet_str = sheet_inp.text().strip()
+            ws = wb.worksheets[int(sheet_str) - 1] if sheet_str.isdigit() else wb[sheet_str]
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"No se pudo leer el Excel:\n{e}")
+            return
+
+        prefix_map = {"dia": "CD", "semana": "CS", "mes": "CM", "anio": "CA"}
+        counters = {"dia": 1, "semana": 1, "mes": 1, "anio": 1}
+        new_items = []
+        for row in ws.iter_rows():
+            for cell in row:
+                val = cell.value
+                if val is None or str(val).strip() == "":
+                    continue
+                label = str(val).strip()
+                posicion = fmt_pos(cell.row - 1, cell.column - 1)
+                for period in configured_periods:
+                    pid = ids[period]
+                    prefix = prefix_map[period]
+                    seq = counters[period]
+                    counters[period] += 1
+                    new_items.append(CellItem(
+                        id_form=pid,
+                        label=label,
+                        codigo=f"{prefix}_{seq:05d}{client_code}",
+                        tipo=2,
+                        deci=0,
+                        posicion=posicion,
+                        valor="",
+                    ))
+
+        if not new_items:
+            QMessageBox.information(self, "Info", "No se encontraron datos en el Excel.")
+            return
+
+        ret = QMessageBox.question(
+            self, "Confirmar",
+            f"Se importarán {len(new_items)} campos para {len(configured_periods)} período(s).\n¿Reemplazar datos actuales?"
+        )
+        if ret != QMessageBox.Yes:
+            return
+
+        self.save_state()
+        self.items = new_items
+        self.items_by_codigo = {d.codigo: d for d in self.items}
+        self.global_ids = ids
+        self.pos_to_item = {}
+        for d in self.items:
+            p = self.get_period(d) or "dia"
+            self.pos_to_item[(d.posicion, p)] = d
+
+        type_map = {"dia": "d", "semana": "s", "mes": "m", "anio": "a"}
+        cod_fechas = []
+        for p in configured_periods:
+            entry: Dict = {"id_form": ids[p], "tipo_val": type_map[p]}
+            if p == "dia":
+                entry["cod_fecha"] = f"FECHPROCE{client_code}"
+            elif p == "mes":
+                entry["cod_mes"] = f"MESCIERRE{client_code}"
+                entry["cod_año"] = f"ANIOCIERRE{client_code}"
+            elif p == "anio":
+                entry["cod_año"] = f"ANIOCIERRE{client_code}PROCESO"
+            cod_fechas.append(entry)
+
+        self.root_data = {
+            "bloquearFuentes": [],
+            "validarDataForms": [],
+            "formularioC": [{"fecha_cierre": f"FECHPROCE{client_code}", "cod_fechas": cod_fechas}],
+            "datosAG": [],
+        }
+
+        self.build_groups()
+        self.refresh_list()
+        self.render_from_items()
+        self.undo_stack.clear()
+        self.redo_stack.clear()
+        self.current_label.setText(f"Importados: {len(self.items)} items")
+        if hasattr(self, "count_label") and self.count_label:
+            self.count_label.setText(f"{len(self.items)} Items | Importados")
+        QMessageBox.information(self, "Éxito", f"Se importaron {len(new_items)} campos del cliente {client_code}.")
 
     def refresh_list(self):
         if hasattr(self, "search_entry"):
@@ -888,26 +1641,38 @@ class GridEditor(QMainWindow):
         if not tbl:
             return
         r, c = parse_pos(d.posicion)
-        item = QTableWidgetItem(d.label)
-        item.setData(Qt.UserRole, d.codigo)
-        tbl.setItem(r, c, item)
+        qitem = QTableWidgetItem(d.label)
+        qitem.setData(Qt.UserRole, d.codigo)
+        # Aplicar color de duplicado si corresponde
+        code_norm = (d.codigo or "").strip().upper()
+        if code_norm and code_norm in self.duplicate_codes:
+            qitem.setBackground(QBrush(QColor("#CC0000")))
+            qitem.setForeground(QBrush(QColor("#FFFFFF")))
+        tbl.setItem(r, c, qitem)
 
     def get_period(self, d: CellItem) -> Optional[str]:
+        # 1° prioridad: prefijo del código (más confiable)
         code = d.codigo.strip().upper()
         if len(code) >= 2:
             prefix = code[:2]
             m = {"CD": "dia", "CS": "semana", "CM": "mes", "CA": "anio"}
             if prefix in m:
                 return m[prefix]
+        # 2° prioridad: coincidencia por id_form con global_ids
         for k in ["dia", "semana", "mes", "anio"]:
             val = self.global_ids.get(k)
             if val is not None and d.id_form == val:
                 return k
-        lbl = d.label.upper()
-        for k in ["DIA", "SEMANA", "MES", "AÑO", "ANIO"]:
-            if k in lbl:
-                return {"DIA": "dia", "SEMANA": "semana", "MES": "mes", "AÑO": "anio", "ANIO": "anio"}[k]
+        # Sin fallback por label — evita misclasificación de campos como
+        # "INVENTARIO DIA/MES/AÑO" que contienen palabras de varios períodos
         return None
+
+    def _active_periods(self) -> List[str]:
+        """Períodos que realmente existen en el JSON cargado (detectados de formularioC + datosAG)."""
+        if self.json_periods:
+            return self.json_periods
+        # Fallback si no hay JSON cargado: cualquier período con ID configurado
+        return [p for p in ["dia", "semana", "mes", "anio"] if self.global_ids.get(p) is not None]
 
     def normalize_label(self, lbl: str) -> str:
         u = lbl.upper().strip()
@@ -956,24 +1721,31 @@ class GridEditor(QMainWindow):
             tbl.setRowCount(max_r)
             tbl.setColumnCount(max_c)
         
-        for k, items_list in grp.items():
-            # Clear old positions first
-            for it in items_list:
-                old_r, old_c = parse_pos(it.posicion)
-                if old_r >= 0 and old_c >= 0:
-                    p_it = self.get_period(it) or "dia"
-                    tbl_it = self.tables.get(p_it)
-                    if tbl_it:
-                        tbl_it.setItem(old_r, old_c, QTableWidgetItem(""))
-            
-            # Update to new positions
-            delta = deltas.get(k, 0)
-            target_c = new_c + delta
-            
-            for it in items_list:
-                it.posicion = fmt_pos(new_r, target_c)
-                self.place_item(it)
-                
+        # Bloquar señales de todas las tablas durante el movimiento de grupo
+        for tbl in self.tables.values():
+            tbl.blockSignals(True)
+        try:
+            for k, items_list in grp.items():
+                # Clear old positions first
+                for it in items_list:
+                    old_r, old_c = parse_pos(it.posicion)
+                    if old_r >= 0 and old_c >= 0:
+                        p_it = self.get_period(it) or "dia"
+                        tbl_it = self.tables.get(p_it)
+                        if tbl_it:
+                            tbl_it.setItem(old_r, old_c, QTableWidgetItem(""))
+
+                # Update to new positions
+                delta = deltas.get(k, 0)
+                target_c = new_c + delta
+
+                for it in items_list:
+                    it.posicion = fmt_pos(new_r, target_c)
+                    self.place_item(it)
+        finally:
+            for tbl in self.tables.values():
+                tbl.blockSignals(False)
+
         self.pos_to_item = {}
         for d in self.items:
             p = self.get_period(d) or "dia"
@@ -1044,7 +1816,10 @@ class GridEditor(QMainWindow):
 
     def extract_global_ids(self):
         ids = {"dia": None, "semana": None, "mes": None, "anio": None}
+        detected: List[str] = []
         root = self.root_data
+
+        # 1. Leer períodos desde formularioC
         try:
             if isinstance(root, dict) and isinstance(root.get("formularioC"), list):
                 arr = root["formularioC"][0]
@@ -1053,15 +1828,52 @@ class GridEditor(QMainWindow):
                     tv = e.get("tipo_val")
                     if tv == "d":
                         ids["dia"] = e.get("id_form")
+                        detected.append("dia")
                     elif tv == "s":
                         ids["semana"] = e.get("id_form")
+                        detected.append("semana")
                     elif tv == "m":
                         ids["mes"] = e.get("id_form")
+                        detected.append("mes")
                     elif tv == "a":
                         ids["anio"] = e.get("id_form")
+                        detected.append("anio")
         except Exception:
             pass
+
+        # 2. Validar: quitar períodos cuyo id_form no aparece realmente en datosAG
+        if isinstance(root, dict) and isinstance(root.get("datosAG"), list):
+            actual_ids: set = set()
+            for group in root["datosAG"]:
+                if isinstance(group, list):
+                    for item in group:
+                        if isinstance(item, dict) and "id_form" in item:
+                            actual_ids.add(item["id_form"])
+            for k in list(ids.keys()):
+                if ids[k] is not None and ids[k] not in actual_ids:
+                    ids[k] = None
+                    detected = [p for p in detected if p != k]
+
+            # 3. Fallback: si formularioC estaba vacío, detectar por prefijo de código en datosAG
+            if not detected:
+                prefix_map = {"CD": "dia", "CS": "semana", "CM": "mes", "CA": "anio"}
+                id_to_period: Dict[int, str] = {}
+                for group in root["datosAG"]:
+                    if isinstance(group, list):
+                        for item in group:
+                            if isinstance(item, dict):
+                                code = str(item.get("codigo", "")).strip().upper()
+                                fid = item.get("id_form")
+                                if len(code) >= 2 and code[:2] in prefix_map and fid is not None:
+                                    p = prefix_map[code[:2]]
+                                    if p not in detected:
+                                        detected.append(p)
+                                        ids[p] = fid
+
         self.global_ids = ids
+        # Preservar orden canónico
+        order = ["dia", "semana", "mes", "anio"]
+        self.json_periods = [p for p in order if p in detected]
 
     def apply_global_ids_to_root(self):
         root = self.root_data
@@ -1084,7 +1896,7 @@ class GridEditor(QMainWindow):
 
     def update_root_with_items_and_ids(self, root):
         self.apply_global_ids_to_root()
-        mapping = {d.codigo: d.posicion for d in self.items}
+        mapping = {d.codigo: d.posicion for d in self.items if d.codigo}
         def rec(v):
             if isinstance(v, dict):
                 if "codigo" in v and "posicion" in v:
@@ -1112,7 +1924,9 @@ class GridEditor(QMainWindow):
         updated = []
         for d in self.items:
             r, c = parse_pos(d.posicion)
-            if r >= idx:
+            # Solo desplazar ítems del período activo; otros períodos tienen su propia grilla
+            p = self.get_period(d) or "dia"
+            if p == self.current_period and r >= idx:
                 r += 1
             d.posicion = fmt_pos(r, c)
             updated.append(d)
@@ -1148,7 +1962,9 @@ class GridEditor(QMainWindow):
         updated = []
         for d in self.items:
             r, c = parse_pos(d.posicion)
-            if c >= idx:
+            # Solo desplazar ítems del período activo
+            p = self.get_period(d) or "dia"
+            if p == self.current_period and c >= idx:
                 c += 1
             d.posicion = fmt_pos(r, c)
             updated.append(d)
@@ -1171,6 +1987,60 @@ class GridEditor(QMainWindow):
 
     def get_item_at(self, pos: str, period: str) -> Optional[CellItem]:
         return self.pos_to_item.get((pos, period))
+
+    def _insert_item(self, new: CellItem):
+        """Inserta un item nuevo en self.items en la posición correcta dentro de su grupo
+        de id_form, respetando la sección de columna (salto > 2 = nueva sección)
+        y el orden (fila, columna) dentro de esa sección."""
+        new_r, new_c = parse_pos(new.posicion)
+
+        # Detectar a qué sección pertenece la columna nueva
+        # usando las columnas ya existentes del mismo id_form
+        same_form = [d for d in self.items if d.id_form == new.id_form]
+        all_cols = sorted(set(parse_pos(d.posicion)[1] for d in same_form))
+
+        col_to_sec: Dict[int, int] = {}
+        if all_cols:
+            sec_idx = 0
+            col_to_sec[all_cols[0]] = 0
+            for i in range(1, len(all_cols)):
+                if all_cols[i] - all_cols[i - 1] > 2:
+                    sec_idx += 1
+                col_to_sec[all_cols[i]] = sec_idx
+
+        # Asignar sección al nuevo item: si su columna no existe aún,
+        # inferirla buscando la columna más cercana sin salto > 2
+        new_sec = 0
+        if all_cols:
+            # Buscar la sección que corresponde a new_c
+            best_col = min(all_cols, key=lambda c: abs(c - new_c))
+            if abs(best_col - new_c) <= 2:
+                new_sec = col_to_sec[best_col]
+            else:
+                # Columna nueva forma su propia sección — determinar índice por posición
+                new_sec = sum(1 for c in all_cols if c < new_c and all_cols[all_cols.index(c) + 1] - c > 2
+                              if all_cols.index(c) + 1 < len(all_cols))
+
+        # Buscar el último item del mismo id_form y misma sección con pos <= nueva
+        insert_after = -1
+        for i, d in enumerate(self.items):
+            if d.id_form != new.id_form:
+                continue
+            dc_r, dc_c = parse_pos(d.posicion)
+            d_sec = col_to_sec.get(dc_c, 999)
+            if d_sec == new_sec and (dc_r, dc_c) <= (new_r, new_c):
+                insert_after = i
+
+        if insert_after == -1:
+            # No hay item anterior en esa sección; insertar al inicio del grupo
+            # o justo antes de la siguiente sección
+            first_of_group = next((i for i, d in enumerate(self.items) if d.id_form == new.id_form), -1)
+            if first_of_group == -1:
+                self.items.append(new)
+            else:
+                self.items.insert(first_of_group, new)
+        else:
+            self.items.insert(insert_after + 1, new)
 
     def on_cell_changed(self, r: int, c: int):
         if self.updating:
@@ -1223,38 +2093,9 @@ class GridEditor(QMainWindow):
                 posicion=pos,
                 valor="",
             )
-            self.items.append(new)
+            self._insert_item(new)
             self.pos_to_item[(pos, self.current_period)] = new
-            
-            # Sync creation to other periods if they have valid IDs
-            # "cuando agregue valores en dia lo agregue en semana mes año pero exactamente igual"
-            # "y salgan en rojo hasta que modifique el codigo"
-            if current_id > 0: # Only sync if current item has a valid ID context
-                # PREVENT RECURSION: We are about to modify tables programmatically.
-                self.updating = True
-                try:
-                    for p in ["dia", "semana", "mes", "anio"]:
-                        if p == self.current_period:
-                            continue
-                        
-                        target_id = self.global_ids.get(p)
-                        # "si en el dialogo... uno esta vacio... omitira y no hara nada"
-                        if target_id is None:
-                            continue
-                            
-                        # "que se cree en semana pero con su respectivo id de semana y no con el de dia"
-                        clone = copy.deepcopy(new)
-                        clone.id_form = target_id
-                        
-                        self.items.append(clone)
-                        # CRITICAL: Register clone in the map so it doesn't "disappear" or get overwritten
-                        self.pos_to_item[(pos, p)] = clone
-                        
-                        # Force visual creation of the clone in its table so update_duplicates can find it
-                        self.place_item(clone)
-                finally:
-                    self.updating = False
-            
+
         self.build_groups()
         self.show_cell_details(r, c)
         self.update_duplicates()
@@ -1274,6 +2115,11 @@ class GridEditor(QMainWindow):
             self.det_tipo.setText(str(it.tipo))
             self.det_deci.setText(str(it.deci))
             self.det_valor.setText(it.valor)
+            if it.codigo:
+                self._validate_and_highlight_codigo(it.codigo)
+            else:
+                self.det_codigo.setStyleSheet("background:#2D2D44; color:#fff; border:0; padding:8px;")
+                self.det_codigo.setToolTip("")
         else:
             self.det_label.setText("")
             self.det_codigo.setText("")
@@ -1282,6 +2128,8 @@ class GridEditor(QMainWindow):
             self.det_tipo.setText("")
             self.det_deci.setText("")
             self.det_valor.setText("")
+            self.det_codigo.setStyleSheet("background:#2D2D44; color:#fff; border:0; padding:8px;")
+            self.det_codigo.setToolTip("")
             
     def on_detail_edited(self):
         if self.updating: return
@@ -1301,6 +2149,11 @@ class GridEditor(QMainWindow):
             
         new_label = self.det_label.text()
         new_code = self.det_codigo.text().strip().upper() # Force upper and strip
+        if new_code:
+            self._validate_and_highlight_codigo(new_code)
+        else:
+            self.det_codigo.setStyleSheet("background:#2D2D44; color:#fff; border:0; padding:8px;")
+            self.det_codigo.setToolTip("")
         new_id = safe_int(self.det_id.text())
         new_tipo = safe_int(self.det_tipo.text())
         new_deci = safe_int(self.det_deci.text())
@@ -1325,22 +2178,19 @@ class GridEditor(QMainWindow):
                 posicion=pos,
                 valor=new_valor
             )
-            self.items.append(item)
-            # Only update pos_to_item if it's the first item at this pos (or force it?)
-            # For multi-period support, pos_to_item is ambiguous.
-            # But we set it for legacy support.
+            self._insert_item(item)
             self.pos_to_item[(pos, self.current_period)] = item
-            
+
             if new_code:
                 self.items_by_codigo[new_code] = item
-            
+
             self.updating = True
             qitem = QTableWidgetItem(new_label)
             qitem.setData(Qt.UserRole, new_code)
             self.table.setItem(r, c, qitem)
             self.updating = False
-            
-            self.build_groups() # Rebuild groups for the new item
+
+            self.build_groups()
             self.refresh_list()
             self.current_label.setText(f"Cargados: {len(self.items)} items")
             if hasattr(self, "count_label") and self.count_label:
