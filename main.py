@@ -4,7 +4,7 @@ import copy
 import re
 from dataclasses import dataclass
 from typing import List, Dict, Optional, Tuple
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QPushButton, QFileDialog, QLabel, QSplitter, QMessageBox, QFormLayout, QLineEdit, QGroupBox, QCheckBox, QScrollArea, QTabWidget, QSpinBox, QAbstractItemView, QDialog, QDialogButtonBox, QColorDialog, QMenu, QInputDialog, QTableWidgetSelectionRange, QFrame
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QPushButton, QFileDialog, QLabel, QSplitter, QMessageBox, QFormLayout, QLineEdit, QGroupBox, QCheckBox, QScrollArea, QTabWidget, QSpinBox, QAbstractItemView, QDialog, QDialogButtonBox, QColorDialog, QMenu, QInputDialog, QTableWidgetSelectionRange, QFrame, QComboBox
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor, QFont, QKeySequence, QShortcut, QBrush, QAction
 
@@ -82,6 +82,12 @@ class GridEditor(QMainWindow):
         self.copy_btn.clicked.connect(self.copy_selection)
         self.paste_btn = QPushButton("Pegar Celda")
         self.paste_btn.clicked.connect(self.paste_selection)
+
+        self.copy_period_btn = QPushButton("📋 Copiar a período")
+        self.copy_period_btn.clicked.connect(self.copy_period_to_period)
+
+        self.mass_codes_btn = QPushButton("⚙️ Configurar códigos masivos")
+        self.mass_codes_btn.clicked.connect(self.mass_configure_codes)
         
         self.clear_btn = QPushButton("Limpiar")
         self.clear_btn.clicked.connect(self.on_clear_all)
@@ -94,7 +100,6 @@ class GridEditor(QMainWindow):
         QShortcut(QKeySequence("Ctrl+Shift+Z"), self, self.redo)
         QShortcut(QKeySequence("Ctrl+C"), self, self.copy_selection)
         QShortcut(QKeySequence("Ctrl+V"), self, self.paste_selection)
-        QShortcut(QKeySequence("Delete"), self, self.delete_selection)
         self._move_shortcuts = []
         for seq, fn in [
             ("Alt+Up", lambda: self.move_selected_block(-1, 0)),
@@ -147,6 +152,9 @@ class GridEditor(QMainWindow):
         self.config_ids_btn = QPushButton("Configurar IDs Globales")
         self.config_ids_btn.clicked.connect(self.prompt_global_ids)
 
+        self.mass_ids_btn = QPushButton("⚡ Actualizar IDs masivos")
+        self.mass_ids_btn.clicked.connect(self.mass_update_ids)
+
         self.detail_box = QGroupBox("Detalle celda")
         self.det_label = QLineEdit()
         self.det_codigo = QLineEdit()
@@ -192,6 +200,10 @@ class GridEditor(QMainWindow):
         self.copy_btn.setObjectName("btn_secondary")
         self.paste_btn.setText("📌 Pegar")
         self.paste_btn.setObjectName("btn_secondary")
+        self.copy_period_btn.setText("📋 Copiar a período")
+        self.copy_period_btn.setObjectName("btn_edit")
+        self.mass_codes_btn.setText("⚙️ Configurar códigos masivos")
+        self.mass_codes_btn.setObjectName("btn_edit")
         self.undo_btn.setText("↩ Deshacer")
         self.undo_btn.setObjectName("btn_secondary")
         self.redo_btn.setText("↪ Rehacer")
@@ -256,6 +268,7 @@ class GridEditor(QMainWindow):
         ids_layout.addWidget(self.ids_box)
         ids_layout.addWidget(self.update_ids_btn)
         ids_layout.addWidget(self.config_ids_btn)
+        ids_layout.addWidget(self.mass_ids_btn)
 
         def sidebar_sep():
             line = QFrame()
@@ -278,6 +291,8 @@ class GridEditor(QMainWindow):
         left_controls_layout.addWidget(self.add_col_btn)
         left_controls_layout.addWidget(self.copy_btn)
         left_controls_layout.addWidget(self.paste_btn)
+        left_controls_layout.addWidget(self.copy_period_btn)
+        left_controls_layout.addWidget(self.mass_codes_btn)
         left_controls_layout.addWidget(sidebar_sep())
         # Grupo: Historial
         left_controls_layout.addWidget(self.undo_btn)
@@ -286,6 +301,10 @@ class GridEditor(QMainWindow):
         # Grupo: Opciones + zona peligrosa
         left_controls_layout.addWidget(self.move_mode)
         left_controls_layout.addWidget(self.clear_btn)
+        self.delete_btn = QPushButton("🗑 Borrar selección")
+        self.delete_btn.setObjectName("btn_danger")
+        self.delete_btn.clicked.connect(self.delete_selection)
+        left_controls_layout.addWidget(self.delete_btn)
         left_controls_layout.addWidget(self.current_label)
 
         left_splitter = QSplitter(Qt.Vertical)
@@ -902,37 +921,26 @@ class GridEditor(QMainWindow):
         self.update_duplicates()
 
     def delete_selection(self):
-        r = self.table.currentRow()
-        c = self.table.currentColumn()
-        if r < 0 or c < 0:
+        items_to_del = []
+        for qitem in self.table.selectedItems():
+            r = self.table.row(qitem)
+            c = self.table.column(qitem)
+            item = self.get_item_at(fmt_pos(r, c), self.current_period)
+            if item and item not in items_to_del:
+                items_to_del.append(item)
+        if not items_to_del:
             return
-            
-        pos = fmt_pos(r, c)
-        item = self.get_item_at(pos, self.current_period)
-        
-        if not item:
-            # Clear visual cell just in case
-            self.table.setItem(r, c, QTableWidgetItem(""))
-            return
-            
         self.save_state()
-        
-        # Remove from main list
-        if item in self.items:
-            self.items.remove(item)
-            
-        # Remove from lookup maps
-        if item.codigo and self.items_by_codigo.get(item.codigo) == item:
-            del self.items_by_codigo[item.codigo]
-            
-        self.pos_to_item.pop((pos, self.current_period), None)
-        
-        # Clear UI
-        self.table.setItem(r, c, QTableWidgetItem(""))
-        self.show_cell_details(r, c)
+        for item in items_to_del:
+            if item in self.items:
+                self.items.remove(item)
+            if item.codigo and self.items_by_codigo.get(item.codigo) == item:
+                del self.items_by_codigo[item.codigo]
+            self.pos_to_item.pop((item.posicion, self.current_period), None)
+            self.table.setItem(*parse_pos(item.posicion), QTableWidgetItem(""))
+        self.show_cell_details(self.table.currentRow(), self.table.currentColumn())
         self.refresh_list()
         self.update_duplicates()
-        
         if hasattr(self, "count_label") and self.count_label:
             self.count_label.setText(f"{len(self.items)} Items | Cargados")
 
@@ -1332,10 +1340,277 @@ class GridEditor(QMainWindow):
 
             self.apply_global_ids_to_root()
 
+    def mass_update_ids(self):
+        if not self.items:
+            QMessageBox.information(self, "Aviso", "No hay items cargados.")
+            return
+        dlg = QDialog(self)
+        dlg.setWindowTitle("Actualizar IDs masivamente")
+        layout = QVBoxLayout(dlg)
+        form = QFormLayout()
+        inputs = {}
+        for k in ["dia", "semana", "mes", "anio"]:
+            inp = QLineEdit()
+            val = self.global_ids.get(k)
+            if val is not None:
+                inp.setText(str(val))
+            inputs[k] = inp
+            label = {"dia": "Día", "semana": "Semana", "mes": "Mes", "anio": "Año"}.get(k, k)
+            form.addRow(f"ID {label}:", inp)
+        layout.addLayout(form)
+        btns = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        btns.accepted.connect(dlg.accept)
+        btns.rejected.connect(dlg.reject)
+        layout.addWidget(btns)
+        if dlg.exec() != QDialog.Accepted:
+            return
+
+        new_ids = {}
+        for k, inp in inputs.items():
+            txt = inp.text().strip()
+            new_ids[k] = int(txt) if txt.isdigit() else None
+
+        if not any(v is not None for v in new_ids.values()):
+            QMessageBox.warning(self, "Error", "Debe configurar al menos un ID.")
+            return
+
+        self.save_state()
+
+        periods = [self.get_period(d) for d in self.items]
+        self.global_ids = new_ids
+
+        updated = 0
+        skipped = 0
+        for d, p in zip(self.items, periods):
+            if p is None:
+                skipped += 1
+                continue
+            new_id = new_ids.get(p)
+            if new_id is not None:
+                d.id_form = new_id
+                updated += 1
+
+        self.items_by_codigo = {d.codigo: d for d in self.items}
+        self.pos_to_item = {}
+        for d in self.items:
+            p = self.get_period(d) or "dia"
+            self.pos_to_item[(d.posicion, p)] = d
+        self.build_groups()
+        self.apply_global_ids_to_root()
+        self.refresh_list()
+        self.update_duplicates()
+        self.show_cell_details(self.table.currentRow(), self.table.currentColumn())
+        QMessageBox.information(
+            self, "Listo",
+            f"IDs actualizados: {updated} items.\n"
+            f"{skipped} items sin período detectable se dejaron sin tocar."
+        )
+
+    def copy_period_to_period(self):
+        source_period = self.current_period
+        selected = self.table.selectedItems()
+        if not selected:
+            QMessageBox.information(self, "Aviso", "Selecciona una o varias celdas/columnas primero.")
+            return
+
+        targets = [p for p in ["dia", "semana", "mes", "anio"] if p != source_period]
+        dlg = QDialog(self)
+        dlg.setWindowTitle("Copiar a período")
+        layout = QVBoxLayout(dlg)
+        form = QFormLayout()
+        target_combo = QComboBox()
+        for p in targets:
+            label = {"dia": "Día", "semana": "Semana", "mes": "Mes", "anio": "Año"}.get(p, p)
+            target_combo.addItem(label, p)
+        form.addRow("Período destino:", target_combo)
+        overwrite_cb = QCheckBox("Sobrescribir celdas existentes")
+        overwrite_cb.setChecked(True)
+        form.addRow("", overwrite_cb)
+        layout.addLayout(form)
+        btns = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        btns.accepted.connect(dlg.accept)
+        btns.rejected.connect(dlg.reject)
+        layout.addWidget(btns)
+        if dlg.exec() != QDialog.Accepted:
+            return
+
+        target = target_combo.currentData()
+        overwrite = overwrite_cb.isChecked()
+        target_id = self.global_ids.get(target)
+        if target_id is None:
+            QMessageBox.warning(
+                self, "Error",
+                f"El período {self.period_title(target)} no tiene ID configurado.\n"
+                "Configúralo en 'Configurar IDs Globales' antes de copiar."
+            )
+            return
+
+        source_items = []
+        for qitem in selected:
+            r = self.table.row(qitem)
+            c = self.table.column(qitem)
+            item = self.get_item_at(fmt_pos(r, c), source_period)
+            if item and item not in source_items:
+                source_items.append(item)
+        if not source_items:
+            QMessageBox.information(self, "Aviso", "Las celdas seleccionadas no contienen datos.")
+            return
+
+        ret = QMessageBox.question(
+            self, "Confirmar",
+            f"Copiar {len(source_items)} campo(s) de {self.period_title(source_period)} "
+            f"a {self.period_title(target)}?"
+        )
+        if ret != QMessageBox.Yes:
+            return
+
+        self.save_state()
+
+        created = 0
+        removed = 0
+        skipped = 0
+        for src in source_items:
+            pos = src.posicion
+            existing = self.pos_to_item.get((pos, target))
+            if existing:
+                if not overwrite:
+                    skipped += 1
+                    continue
+                if existing in self.items:
+                    self.items.remove(existing)
+                if existing.codigo and self.items_by_codigo.get(existing.codigo) == existing:
+                    del self.items_by_codigo[existing.codigo]
+                removed += 1
+            new = CellItem(
+                id_form=target_id,
+                label=src.label,
+                codigo=self._swap_prefix(src.codigo, target),
+                tipo=src.tipo,
+                deci=src.deci,
+                posicion=pos,
+                valor=src.valor,
+            )
+            self._insert_item(new)
+            created += 1
+
+        self.pos_to_item = {}
+        for d in self.items:
+            p = self.get_period(d) or "dia"
+            self.pos_to_item[(d.posicion, p)] = d
+        self.items_by_codigo = {d.codigo: d for d in self.items}
+        self.build_groups()
+
+        if target not in self.json_periods:
+            order = ["dia", "semana", "mes", "anio"]
+            self.json_periods = [p for p in order if p in self.json_periods or p == target]
+
+        self.render_from_items()
+        self.refresh_list()
+        self.update_duplicates()
+
+        msg = f"Copiados {created} campo(s) a {self.period_title(target)}."
+        if removed:
+            msg += f" Reemplazados {removed}."
+        if skipped:
+            msg += f" Omitidos {skipped}."
+        QMessageBox.information(self, "Listo", msg)
+
+    def mass_configure_codes(self):
+        period = self.current_period
+        period_items = [d for d in self.items if (self.get_period(d) or "dia") == period]
+        if not period_items:
+            QMessageBox.information(self, "Aviso", f"No hay items en la hoja {self.period_title(period)}.")
+            return
+
+        prefix_map = {"dia": "CD", "semana": "CS", "mes": "CM", "anio": "CA"}
+        prefix = prefix_map.get(period, "CD")
+
+        first_code = ""
+        for d in period_items:
+            if d.codigo:
+                first_code = d.codigo
+                break
+
+        dlg = QDialog(self)
+        dlg.setWindowTitle("Configurar códigos masivos")
+        layout = QVBoxLayout(dlg)
+        form = QFormLayout()
+        inp = QLineEdit()
+        inp.setText(first_code)
+        inp.selectAll()
+        form.addRow(f"Código inicial para {self.period_title(period)}:", inp)
+        layout.addLayout(form)
+        btns = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        btns.accepted.connect(dlg.accept)
+        btns.rejected.connect(dlg.reject)
+        layout.addWidget(btns)
+        if dlg.exec() != QDialog.Accepted:
+            return
+
+        raw = inp.text().strip().upper()
+        m = re.match(r'^(CD|CS|CM|CA)_([A-Z]+)?(\d+)([A-Z]*)$', raw)
+        if not m:
+            QMessageBox.warning(
+                self, "Error",
+                f"Código inválido. Formato esperado: {prefix}_{texto}{numero}{cliente}, "
+                f"ej: {prefix}_MAS000001."
+            )
+            return
+        if m.group(1) != prefix:
+            QMessageBox.warning(
+                self, "Error",
+                f"El código debe comenzar con {prefix} para la hoja {self.period_title(period)}."
+            )
+            return
+
+        base = m.group(1) + "_" + (m.group(2) or "")
+        start_num = int(m.group(3))
+        width = len(m.group(3))
+        suffix = m.group(4) or ""
+
+        ret = QMessageBox.question(
+            self, "Confirmar",
+            f"Actualizar {len(period_items)} código(s) de {self.period_title(period)} "
+            f"desde {raw} en orden (fila, columna)?"
+        )
+        if ret != QMessageBox.Yes:
+            return
+
+        # Orden (sección de columna, fila, columna): mismo criterio que _rebuild_datosAG
+        all_cols = sorted(set(parse_pos(d.posicion)[1] for d in period_items))
+        col_to_sec: Dict[int, int] = {}
+        if all_cols:
+            sec_idx = 0
+            col_to_sec[all_cols[0]] = 0
+            for i in range(1, len(all_cols)):
+                if all_cols[i] - all_cols[i - 1] > 2:
+                    sec_idx += 1
+                col_to_sec[all_cols[i]] = sec_idx
+
+        def sort_key(d):
+            r, c = parse_pos(d.posicion)
+            return (col_to_sec.get(c, 999), r, c)
+
+        ordered = sorted(period_items, key=sort_key)
+
+        self.save_state()
+        for i, d in enumerate(ordered):
+            d.codigo = f"{base}{start_num + i:0{width}d}{suffix}"
+
+        self.items_by_codigo = {d.codigo: d for d in self.items}
+        self.refresh_list()
+        self.update_duplicates()
+        self.show_cell_details(self.table.currentRow(), self.table.currentColumn())
+
+        QMessageBox.information(
+            self, "Listo",
+            f"Actualizados {len(ordered)} código(s) de {self.period_title(period)}."
+        )
+
     def on_save_json(self):
         if not self.items:
             return
-        path, _ = QFileDialog.getSaveFileName(self, "Guardar JSON", "", "JSON (*.json)")
+        path, _ = QFileDialog.getSaveFileName(self, "Guardar JSON", "", "JSON (*.json)", options=QFileDialog.DontUseNativeDialog)
         if not path:
             return
         try:
@@ -1424,19 +1699,32 @@ class GridEditor(QMainWindow):
         client = self._extract_client_code() or ""
         max_seq = 0
         for d in self.items:
-            m = re.match(rf'^{prefix}_(\d+)', d.codigo.strip().upper())
+            m = re.match(rf'^{prefix}_[A-Z]*(\d+)', d.codigo.strip().upper())
             if m:
                 max_seq = max(max_seq, int(m.group(1)))
         return f"{prefix}_{max_seq + 1:05d}{client}"
 
+    def _swap_prefix(self, code: str, target: str) -> str:
+        """Reusa el código del origen cambiando el prefijo (CD->CS->CM->CA).
+
+        Ej: 'CD_MAS000001' copiado a semana queda 'CS_MAS000001'.
+        Si el código no tiene un prefijo reconocible, genera uno nuevo."""
+        prefix_map = {"dia": "CD", "semana": "CS", "mes": "CM", "anio": "CA"}
+        target_prefix = prefix_map.get(target, "CD")
+        code = (code or "").strip().upper()
+        m = re.match(r'^(CD|CS|CM|CA)(.*)$', code)
+        if m:
+            return target_prefix + m.group(2)
+        return self._next_codigo(target)
+
     def _validate_and_highlight_codigo(self, code: str):
         """Validate codigo format and highlight det_codigo if invalid."""
-        valid = re.match(r'^(CD|CS|CM|CA)_(\d+)([A-Z]*)$', code.strip().upper())
+        valid = re.match(r'^(CD|CS|CM|CA)_([A-Z]+)?(\d+)([A-Z]*)$', code.strip().upper())
         if not valid:
             self.det_codigo.setStyleSheet("background:#CC0000; color:#fff; border:0; padding:8px;")
-            self.det_codigo.setToolTip("Formato esperado: {CD|CS|CM|CA}_{numero}{cliente}")
+            self.det_codigo.setToolTip("Formato esperado: {CD|CS|CM|CA}_{texto}{numero}{cliente}")
             return
-        suffix = valid.group(3)
+        suffix = valid.group(4)
         existing = self._extract_client_code()
         if existing and suffix and suffix != existing:
             self.det_codigo.setStyleSheet("background:#CC8800; color:#fff; border:0; padding:8px;")
