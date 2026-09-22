@@ -1,0 +1,3528 @@
+{
+  "bloquearFuentes": [],
+  "validarDataForms": [
+    {
+      "tipoFuente": "form",
+      "id": 1612,
+      "relacion": {
+        "codigo": "PRFRNCFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    }
+  ],
+  "formularioC": [
+    {
+      "fecha_cierre": "FECHBALMASDIA",
+      "cod_fechas": [
+        {
+          "id_form": 1697,
+          "cod_fecha": "FECHBALMASDIA",
+          "tipo_val": "d"
+        },
+        {
+          "id_form": 1698,
+          "cod_semana": "FECHBALMASSEM",
+          "cod_año": "FECHBALMASANIO",
+          "tipo_val": "s"
+        },
+        {
+          "id_form": 1699,
+          "cod_mes": "FECHBALMASMES",
+          "cod_año": "FECHBALMASANNIO",
+          "tipo_val": "m"
+        },
+        {
+          "id_form": 1700,
+          "cod_año": "FECHBALMASANNNIO",
+          "tipo_val": "a"
+        }
+      ]
+    }
+  ],
+  "datosAG": [
+    [
+      {
+        "id_form": 1697,
+        "label": "FECHACIERREPROCESO",
+        "codigo": "CD_MAS000001",
+        "tipo": 3,
+        "deci": 0,
+        "posicion": "4:1",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) DIA",
+        "codigo": "CD_MAS000002",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "8:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) SEMANA",
+        "codigo": "CD_MAS000003",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "8:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) MES ",
+        "codigo": "CD_MAS000004",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "8:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) ANNIO",
+        "codigo": "CD_MAS000005",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "8:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) DIA",
+        "codigo": "CD_MAS000006",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "9:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) SEMANA",
+        "codigo": "CD_MAS000007",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "9:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) MES",
+        "codigo": "CD_MAS000008",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "9:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) ANNIO",
+        "codigo": "CD_MAS000009",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "9:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) DIA",
+        "codigo": "CD_MAS000010",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "10:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) SEMANA",
+        "codigo": "CD_MAS000011",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "10:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) MES",
+        "codigo": "CD_MAS000012",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "10:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) ANNIO",
+        "codigo": "CD_MAS000013",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "10:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) DIA",
+        "codigo": "CD_MAS000014",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "11:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) SEMANA",
+        "codigo": "CD_MAS000015",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "11:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) MES",
+        "codigo": "CD_MAS000016",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "11:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) ANNIO",
+        "codigo": "CD_MAS000017",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "11:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO INGRESADO CERTIFICADO  DIA",
+        "codigo": "CD_MAS000018",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "12:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO INGRESADO CERTIFICADO SEMANA",
+        "codigo": "CD_MAS000019",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "12:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO INGRESADO CERTIFICADO  MES",
+        "codigo": "CD_MAS000020",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "12:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO INGRESADO CERTIFICADO  ANNIO",
+        "codigo": "CD_MAS000021",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "12:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO INGRESADO NO CERTIFICADO DIA",
+        "codigo": "CD_MAS000022",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "13:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO INGRESADO NO CERTIFICADO SEMANA",
+        "codigo": "CD_MAS000023",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "13:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO INGRESADO NO CERTIFICADO  MES",
+        "codigo": "CD_MAS000024",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "13:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO INGRESADO NO CERTIFICADO ANNIO",
+        "codigo": "CD_MAS000025",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "13:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADO (KG) DIA",
+        "codigo": "CD_MAS000026",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "14:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADO (KG) SEMANA",
+        "codigo": "CD_MAS000027",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "14:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADO (KG) MES",
+        "codigo": "CD_MAS000028",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "14:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADO (KG) ANNIO",
+        "codigo": "CD_MAS000029",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "14:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO DIA",
+        "codigo": "CD_MAS000030",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "15:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO SEMANA",
+        "codigo": "CD_MAS000031",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "15:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO MES",
+        "codigo": "CD_MAS000032",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "15:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO ANNIO",
+        "codigo": "CD_MAS000033",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "15:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO DIA",
+        "codigo": "CD_MAS000034",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "16:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO SEMANA",
+        "codigo": "CD_MAS000035",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "16:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO MES",
+        "codigo": "CD_MAS000036",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "16:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO ANNIO",
+        "codigo": "CD_MAS000037",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "16:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "LIMPIEZA DE TANQUE DIA",
+        "codigo": "CD_MAS000038",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "17:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "LIMPIEZA DE TANQUE SEMANA",
+        "codigo": "CD_MAS000039",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "17:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "LIMPIEZA DE TANQUE MES",
+        "codigo": "CD_MAS000040",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "17:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "LIMPIEZA DE TANQUE  ANNIO",
+        "codigo": "CD_MAS000041",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "17:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "SALDO FRUTO CERTIFICADO DIA",
+        "codigo": "CD_MAS000042",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "SALDO FRUTO CERTIFICADO SEAMANA",
+        "codigo": "CD_MAS000043",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "SALDO FRUTO CERTIFICADO MES",
+        "codigo": "CD_MAS000044",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "SALDO FRUTO CERTIFICADO ANNIO",
+        "codigo": "CD_MAS000045",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "SALDO FRUTO NO CERTIFICADO DIA",
+        "codigo": "CD_MAS000046",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "SALDO FRUTO NO CERTIFICADO SEMANA",
+        "codigo": "CD_MAS000047",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "SALDO FRUTO NO CERTIFICADO MES",
+        "codigo": "CD_MAS000048",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "SALDO FRUTO NO CERTIFICADO ANNIO",
+        "codigo": "CD_MAS000049",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL 1(KG) DIA",
+        "codigo": "CD_MAS000050",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL 1(KG)  SEMANA",
+        "codigo": "CD_MAS000051",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL 1(KG) MES",
+        "codigo": "CD_MAS000052",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL 1(KG)  ANNIO",
+        "codigo": "CD_MAS000053",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) DIA",
+        "codigo": "CD_MAS000054",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) SEMANA",
+        "codigo": "CD_MAS000055",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) MES",
+        "codigo": "CD_MAS000056",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) ANNIO",
+        "codigo": "CD_MAS000057",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP DIA",
+        "codigo": "CD_MAS000058",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP SEMANA",
+        "codigo": "CD_MAS000059",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP MES",
+        "codigo": "CD_MAS000060",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP ANNIO",
+        "codigo": "CD_MAS000061",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB DIA",
+        "codigo": "CD_MAS000062",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB SEMANA",
+        "codigo": "CD_MAS000063",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB MES",
+        "codigo": "CD_MAS000064",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB ANNIO",
+        "codigo": "CD_MAS000065",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO DIA",
+        "codigo": "CD_MAS000066",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO SEMANA",
+        "codigo": "CD_MAS000067",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO  MES",
+        "codigo": "CD_MAS000068",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO  ANNIO",
+        "codigo": "CD_MAS000069",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INV INICIAL MB + NC DIA",
+        "codigo": "CD_MAS000070",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INV INICIAL MB + NC SEMANA",
+        "codigo": "CD_MAS000071",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INV INICIAL MB + NC MES",
+        "codigo": "CD_MAS000072",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INV INICIAL MB + NC ANNIO",
+        "codigo": "CD_MAS000073",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) DIA",
+        "codigo": "CD_MAS000074",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) SEMANA",
+        "codigo": "CD_MAS000075",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) MES",
+        "codigo": "CD_MAS000076",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) ANNIO",
+        "codigo": "CD_MAS000077",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP DIA",
+        "codigo": "CD_MAS000078",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP SEAMANA",
+        "codigo": "CD_MAS000079",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP MES",
+        "codigo": "CD_MAS000080",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP ANNIO",
+        "codigo": "CD_MAS000081",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION ACEITE  TANQUE A MB DIA",
+        "codigo": "CD_MAS000082",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION ACEITE  TANQUE A MB SEMANA",
+        "codigo": "CD_MAS000083",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION ACEITE  TANQUE A MB MES",
+        "codigo": "CD_MAS000084",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION ACEITE  TANQUE A MB ANNIO",
+        "codigo": "CD_MAS000085",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO DIA",
+        "codigo": "CD_MAS000086",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO SEMANA",
+        "codigo": "CD_MAS000087",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO MES",
+        "codigo": "CD_MAS000088",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO ANNIO",
+        "codigo": "CD_MAS000089",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS DIA",
+        "codigo": "CD_MAS000090",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS SEMANA",
+        "codigo": "CD_MAS000091",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS MES",
+        "codigo": "CD_MAS000092",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS ANNIO",
+        "codigo": "CD_MAS000093",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL DESPACHOS 1 DIA",
+        "codigo": "CD_MAS000094",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL DESPACHOS 1 SEMANA",
+        "codigo": "CD_MAS000095",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL DESPACHOS 1 MES",
+        "codigo": "CD_MAS000096",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL DESPACHOS 1 ANNIO",
+        "codigo": "CD_MAS000097",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO IP DIA",
+        "codigo": "CD_MAS000098",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO IP SEMANA",
+        "codigo": "CD_MAS000099",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO IP MES",
+        "codigo": "CD_MAS000100",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO IP ANNIO",
+        "codigo": "CD_MAS000101",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO MB  DIA",
+        "codigo": "CD_MAS000102",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO MB  SEMANA",
+        "codigo": "CD_MAS000103",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO MB  MES",
+        "codigo": "CD_MAS000104",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO MB  ANNIO",
+        "codigo": "CD_MAS000105",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO NO CERTIFICADO  DIA",
+        "codigo": "CD_MAS000106",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO NO CERTIFICADO  SEMANA",
+        "codigo": "CD_MAS000107",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO NO CERTIFICADO  MES",
+        "codigo": "CD_MAS000108",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS CPO NO CERTIFICADO  ANNIO",
+        "codigo": "CD_MAS000109",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ENTRE PALMAS (KG) DIA",
+        "codigo": "CD_MAS000110",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ENTRE PALMAS (KG) SEMANA",
+        "codigo": "CD_MAS000111",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ENTRE PALMAS (KG) MES",
+        "codigo": "CD_MAS000112",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ENTRE PALMAS (KG) ANNIO",
+        "codigo": "CD_MAS000113",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  DIA",
+        "codigo": "CD_MAS000114",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  SEMANA",
+        "codigo": "CD_MAS000115",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  MES",
+        "codigo": "CD_MAS000116",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  ANIO",
+        "codigo": "CD_MAS000117",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP DIA",
+        "codigo": "CD_MAS000118",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP SEMANA",
+        "codigo": "CD_MAS000119",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP MES",
+        "codigo": "CD_MAS000120",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP ANNIO",
+        "codigo": "CD_MAS000121",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO DIA",
+        "codigo": "CD_MAS000122",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO SEMANA",
+        "codigo": "CD_MAS000123",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO MES",
+        "codigo": "CD_MAS000124",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO ANNIO",
+        "codigo": "CD_MAS000125",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS DIA",
+        "codigo": "CD_MAS000126",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS SEMANA",
+        "codigo": "CD_MAS000127",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS MES",
+        "codigo": "CD_MAS000128",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS ANNIO",
+        "codigo": "CD_MAS000129",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP DIA",
+        "codigo": "CD_MAS000130",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP SEMANA",
+        "codigo": "CD_MAS000131",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP MES",
+        "codigo": "CD_MAS000132",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP ANNIO",
+        "codigo": "CD_MAS000133",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB DIA",
+        "codigo": "CD_MAS000134",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB SEMANA",
+        "codigo": "CD_MAS000135",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB MES",
+        "codigo": "CD_MAS000136",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB ANNIO",
+        "codigo": "CD_MAS000137",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO DIA",
+        "codigo": "CD_MAS000138",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO SEMANA",
+        "codigo": "CD_MAS000139",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO MES",
+        "codigo": "CD_MAS000140",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO ANNIO",
+        "codigo": "CD_MAS000141",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 DIA",
+        "codigo": "CD_MAS000142",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 SEAMAN",
+        "codigo": "CD_MAS000143",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 MES",
+        "codigo": "CD_MAS000144",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 ANNIO",
+        "codigo": "CD_MAS000145",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "% TEA (ACEITE/RFF) DIA",
+        "codigo": "CD_MAS000146",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "% TEA (ACEITE/RFF) SEMANA",
+        "codigo": "CD_MAS000147",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "% TEA (ACEITE/RFF) MES",
+        "codigo": "CD_MAS000148",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "% TEA (ACEITE/RFF) ANNIO",
+        "codigo": "CD_MAS000149",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) DIA",
+        "codigo": "CD_MAS000150",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) SEMANA",
+        "codigo": "CD_MAS000151",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) MES",
+        "codigo": "CD_MAS000152",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) ANNIO",
+        "codigo": "CD_MAS000153",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP DIA",
+        "codigo": "CD_MAS000154",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP SEAMNA",
+        "codigo": "CD_MAS000155",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP MES",
+        "codigo": "CD_MAS000156",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP ANNIO",
+        "codigo": "CD_MAS000157",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTRIO ALMENDRA INICIAL MB DIA",
+        "codigo": "CD_MAS000158",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTRIO ALMENDRA INICIAL MB SEMANA",
+        "codigo": "CD_MAS000159",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTRIO ALMENDRA INICIAL MB MES",
+        "codigo": "CD_MAS000160",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTRIO ALMENDRA INICIAL MB ANNIO",
+        "codigo": "CD_MAS000161",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) DIA",
+        "codigo": "CD_MAS000162",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) SEMANA",
+        "codigo": "CD_MAS000163",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) MES",
+        "codigo": "CD_MAS000164",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) AANIO",
+        "codigo": "CD_MAS000165",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 DIA",
+        "codigo": "CD_MAS000166",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 SEMANA",
+        "codigo": "CD_MAS000167",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 MES",
+        "codigo": "CD_MAS000168",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 ANNIO",
+        "codigo": "CD_MAS000169",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG)  DIA",
+        "codigo": "CD_MAS000170",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG)  SEMANA",
+        "codigo": "CD_MAS000171",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG)  MES",
+        "codigo": "CD_MAS000172",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG)  ANNIO",
+        "codigo": "CD_MAS000173",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG)  DIA",
+        "codigo": "CD_MAS000174",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG)  SEMANA",
+        "codigo": "CD_MAS000175",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG)  MES",
+        "codigo": "CD_MAS000176",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG)  ANNIO",
+        "codigo": "CD_MAS000177",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) DIA",
+        "codigo": "CD_MAS000178",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) SEMANA",
+        "codigo": "CD_MAS000179",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) MES",
+        "codigo": "CD_MAS000180",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) MES",
+        "codigo": "CD_MAS000181",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL ALMENDRA  DESPACHOS  DIA",
+        "codigo": "CD_MAS000182",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 SEMANA",
+        "codigo": "CD_MAS000183",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 MES",
+        "codigo": "CD_MAS000184",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 ANNIO",
+        "codigo": "CD_MAS000185",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) DIA",
+        "codigo": "CD_MAS000186",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) SEMANA",
+        "codigo": "CD_MAS000187",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) MES",
+        "codigo": "CD_MAS000188",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) ANNIO",
+        "codigo": "CD_MAS000189",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ALMENDRA MB  DIA",
+        "codigo": "CD_MAS000190",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ALMENDRA MB  SEMANA",
+        "codigo": "CD_MAS000191",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ALMENDRA MB  MES",
+        "codigo": "CD_MAS000192",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOS ALMENDRA MB  ANNIO",
+        "codigo": "CD_MAS000193",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) DIA",
+        "codigo": "CD_MAS000194",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) SEMANA",
+        "codigo": "CD_MAS000195",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) MES",
+        "codigo": "CD_MAS000196",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) ANNIO",
+        "codigo": "CD_MAS000197",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL DESPACHADO SANTANA  DIA",
+        "codigo": "CD_MAS000198",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL DESPACHADO SANTANA  SEMANA",
+        "codigo": "CD_MAS000199",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL DESPACHADO SANTANA  MES",
+        "codigo": "CD_MAS000200",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "TOTAL DESPACHADO SANTANA  ANNIO",
+        "codigo": "CD_MAS000201",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP DIA",
+        "codigo": "CD_MAS000202",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP SEMANA",
+        "codigo": "CD_MAS000203",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP MES",
+        "codigo": "CD_MAS000204",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP ANNIO",
+        "codigo": "CD_MAS000205",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA MB DIA",
+        "codigo": "CD_MAS000206",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA MB SEMANA",
+        "codigo": "CD_MAS000207",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA MB MES",
+        "codigo": "CD_MAS000208",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA ANNIO",
+        "codigo": "CD_MAS000209",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) DIA",
+        "codigo": "CD_MAS000210",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) SEMANA",
+        "codigo": "CD_MAS000211",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) MES",
+        "codigo": "CD_MAS000212",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) ANNIO",
+        "codigo": "CD_MAS000213",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL (KG)  DIA",
+        "codigo": "CD_MAS000214",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL (KG)  SEMANA",
+        "codigo": "CD_MAS000215",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL (KG)  MES",
+        "codigo": "CD_MAS000216",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "INVENTARIO FINAL TOTAL (KG)  ANNIO",
+        "codigo": "CD_MAS000217",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% DIA",
+        "codigo": "CD_MAS000218",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:2",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% SEMANA",
+        "codigo": "CD_MAS000219",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% MES",
+        "codigo": "CD_MAS000220",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1697,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% ANNIO",
+        "codigo": "CD_MAS000221",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:5",
+        "valor": ""
+      }
+    ],
+    [
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) SEMANA",
+        "codigo": "CS_MAS000003",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "8:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) SEMANA",
+        "codigo": "CS_MAS000007",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "9:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) SEMANA",
+        "codigo": "CS_MAS000011",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "10:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) SEMANA",
+        "codigo": "CS_MAS000015",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "11:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "FRUTO INGRESADO CERTIFICADO SEMANA",
+        "codigo": "CS_MAS000019",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "12:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "FRUTO INGRESADO NO CERTIFICADO SEMANA",
+        "codigo": "CS_MAS000023",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "13:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "FRUTO PROCESADO (KG) SEMANA",
+        "codigo": "CS_MAS000027",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "14:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO SEMANA",
+        "codigo": "CS_MAS000031",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "15:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO SEMANA",
+        "codigo": "CS_MAS000035",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "16:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "LIMPIEZA DE TANQUE SEMANA",
+        "codigo": "CS_MAS000039",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "17:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "SALDO FRUTO CERTIFICADO SEAMANA",
+        "codigo": "CS_MAS000043",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "SALDO FRUTO NO CERTIFICADO SEMANA",
+        "codigo": "CS_MAS000047",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL 1(KG)  SEMANA",
+        "codigo": "CS_MAS000051",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) SEMANA",
+        "codigo": "CS_MAS000055",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP SEMANA",
+        "codigo": "CS_MAS000059",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB SEMANA",
+        "codigo": "CS_MAS000063",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO SEMANA",
+        "codigo": "CS_MAS000067",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INV INICIAL MB + NC SEMANA",
+        "codigo": "CS_MAS000071",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) SEMANA",
+        "codigo": "CS_MAS000075",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP SEAMANA",
+        "codigo": "CS_MAS000079",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "PRODUCCION ACEITE  TANQUE A MB SEMANA",
+        "codigo": "CS_MAS000083",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO SEMANA",
+        "codigo": "CS_MAS000087",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS SEMANA",
+        "codigo": "CS_MAS000091",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "TOTAL DESPACHOS 1 SEMANA",
+        "codigo": "CS_MAS000095",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "DESPACHOS CPO IP SEMANA",
+        "codigo": "CS_MAS000099",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "DESPACHOS CPO MB  SEMANA",
+        "codigo": "CS_MAS000103",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "DESPACHOS CPO NO CERTIFICADO  SEMANA",
+        "codigo": "CS_MAS000107",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "DESPACHOS ENTRE PALMAS (KG) SEMANA",
+        "codigo": "CS_MAS000111",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "MANTENIMIENTO  SEMANA",
+        "codigo": "CS_MAS000115",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP SEMANA",
+        "codigo": "CS_MAS000119",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO SEMANA",
+        "codigo": "CS_MAS000123",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS SEMANA",
+        "codigo": "CS_MAS000127",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP SEMANA",
+        "codigo": "CS_MAS000131",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB SEMANA",
+        "codigo": "CS_MAS000135",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO SEMANA",
+        "codigo": "CS_MAS000139",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 SEAMAN",
+        "codigo": "CS_MAS000143",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "% TEA (ACEITE/RFF) SEMANA",
+        "codigo": "CS_MAS000147",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) SEMANA",
+        "codigo": "CS_MAS000151",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP SEAMNA",
+        "codigo": "CS_MAS000155",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTRIO ALMENDRA INICIAL MB SEMANA",
+        "codigo": "CS_MAS000159",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) SEMANA",
+        "codigo": "CS_MAS000163",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 SEMANA",
+        "codigo": "CS_MAS000167",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG)  SEMANA",
+        "codigo": "CS_MAS000171",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG)  SEMANA",
+        "codigo": "CS_MAS000175",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) SEMANA",
+        "codigo": "CS_MAS000179",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 SEMANA",
+        "codigo": "CS_MAS000183",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) SEMANA",
+        "codigo": "CS_MAS000187",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "DESPACHOS ALMENDRA MB  SEMANA",
+        "codigo": "CS_MAS000191",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) SEMANA",
+        "codigo": "CS_MAS000195",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "TOTAL DESPACHADO SANTANA  SEMANA",
+        "codigo": "CS_MAS000199",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP SEMANA",
+        "codigo": "CS_MAS000203",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA MB SEMANA",
+        "codigo": "CS_MAS000207",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) SEMANA",
+        "codigo": "CS_MAS000211",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "INVENTARIO FINAL TOTAL (KG)  SEMANA",
+        "codigo": "CS_MAS000215",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:3",
+        "valor": ""
+      },
+      {
+        "id_form": 1698,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% SEMANA",
+        "codigo": "CS_MAS000219",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:3",
+        "valor": ""
+      }
+    ],
+    [
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) MES ",
+        "codigo": "CM_MAS000004",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "8:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) MES",
+        "codigo": "CM_MAS000008",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "9:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) MES",
+        "codigo": "CM_MAS000012",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "10:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) MES",
+        "codigo": "CM_MAS000016",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "11:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "FRUTO INGRESADO CERTIFICADO  MES",
+        "codigo": "CM_MAS000020",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "12:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "FRUTO INGRESADO NO CERTIFICADO  MES",
+        "codigo": "CM_MAS000024",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "13:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "FRUTO PROCESADO (KG) MES",
+        "codigo": "CM_MAS000028",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "14:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO MES",
+        "codigo": "CM_MAS000032",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "15:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO MES",
+        "codigo": "CM_MAS000036",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "16:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "LIMPIEZA DE TANQUE MES",
+        "codigo": "CM_MAS000040",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "17:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "SALDO FRUTO CERTIFICADO MES",
+        "codigo": "CM_MAS000044",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "SALDO FRUTO NO CERTIFICADO MES",
+        "codigo": "CM_MAS000048",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL 1(KG) MES",
+        "codigo": "CM_MAS000052",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) MES",
+        "codigo": "CM_MAS000056",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP MES",
+        "codigo": "CM_MAS000060",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB MES",
+        "codigo": "CM_MAS000064",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO  MES",
+        "codigo": "CM_MAS000068",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INV INICIAL MB + NC MES",
+        "codigo": "CM_MAS000072",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) MES",
+        "codigo": "CM_MAS000076",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP MES",
+        "codigo": "CM_MAS000080",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "PRODUCCION ACEITE  TANQUE A MB MES",
+        "codigo": "CM_MAS000084",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO MES",
+        "codigo": "CM_MAS000088",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS MES",
+        "codigo": "CM_MAS000092",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "TOTAL DESPACHOS 1 MES",
+        "codigo": "CM_MAS000096",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "DESPACHOS CPO IP MES",
+        "codigo": "CM_MAS000100",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "DESPACHOS CPO MB  MES",
+        "codigo": "CM_MAS000104",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "DESPACHOS CPO NO CERTIFICADO  MES",
+        "codigo": "CM_MAS000108",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "DESPACHOS ENTRE PALMAS (KG) MES",
+        "codigo": "CM_MAS000112",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "MANTENIMIENTO  MES",
+        "codigo": "CM_MAS000116",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP MES",
+        "codigo": "CM_MAS000120",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO MES",
+        "codigo": "CM_MAS000124",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS MES",
+        "codigo": "CM_MAS000128",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP MES",
+        "codigo": "CM_MAS000132",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB MES",
+        "codigo": "CM_MAS000136",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO MES",
+        "codigo": "CM_MAS000140",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 MES",
+        "codigo": "CM_MAS000144",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "% TEA (ACEITE/RFF) MES",
+        "codigo": "CM_MAS000148",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) MES",
+        "codigo": "CM_MAS000152",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP MES",
+        "codigo": "CM_MAS000156",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTRIO ALMENDRA INICIAL MB MES",
+        "codigo": "CM_MAS000160",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) MES",
+        "codigo": "CM_MAS000164",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 MES",
+        "codigo": "CM_MAS000168",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG)  MES",
+        "codigo": "CM_MAS000172",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG)  MES",
+        "codigo": "CM_MAS000176",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) MES",
+        "codigo": "CM_MAS000180",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 MES",
+        "codigo": "CM_MAS000184",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) MES",
+        "codigo": "CM_MAS000188",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "DESPACHOS ALMENDRA MB  MES",
+        "codigo": "CM_MAS000192",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) MES",
+        "codigo": "CM_MAS000196",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "TOTAL DESPACHADO SANTANA  MES",
+        "codigo": "CM_MAS000200",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP MES",
+        "codigo": "CM_MAS000204",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA MB MES",
+        "codigo": "CM_MAS000208",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) MES",
+        "codigo": "CM_MAS000212",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "INVENTARIO FINAL TOTAL (KG)  MES",
+        "codigo": "CM_MAS000216",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:4",
+        "valor": ""
+      },
+      {
+        "id_form": 1699,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% MES",
+        "codigo": "CM_MAS000220",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:4",
+        "valor": ""
+      }
+    ],
+    [
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) ANNIO",
+        "codigo": "CA_MAS000005",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "8:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) ANNIO",
+        "codigo": "CA_MAS000009",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "9:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) ANNIO",
+        "codigo": "CA_MAS000013",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "10:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) ANNIO",
+        "codigo": "CA_MAS000017",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "11:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "FRUTO INGRESADO CERTIFICADO  ANNIO",
+        "codigo": "CA_MAS000021",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "12:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "FRUTO INGRESADO NO CERTIFICADO ANNIO",
+        "codigo": "CA_MAS000025",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "13:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "FRUTO PROCESADO (KG) ANNIO",
+        "codigo": "CA_MAS000029",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "14:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO ANNIO",
+        "codigo": "CA_MAS000033",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "15:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO ANNIO",
+        "codigo": "CA_MAS000037",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "16:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "LIMPIEZA DE TANQUE  ANNIO",
+        "codigo": "CA_MAS000041",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "17:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "SALDO FRUTO CERTIFICADO ANNIO",
+        "codigo": "CA_MAS000045",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "SALDO FRUTO NO CERTIFICADO ANNIO",
+        "codigo": "CA_MAS000049",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL 1(KG)  ANNIO",
+        "codigo": "CA_MAS000053",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) ANNIO",
+        "codigo": "CA_MAS000057",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP ANNIO",
+        "codigo": "CA_MAS000061",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB ANNIO",
+        "codigo": "CA_MAS000065",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO  ANNIO",
+        "codigo": "CA_MAS000069",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INV INICIAL MB + NC ANNIO",
+        "codigo": "CA_MAS000073",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) ANNIO",
+        "codigo": "CA_MAS000077",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP ANNIO",
+        "codigo": "CA_MAS000081",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "PRODUCCION ACEITE  TANQUE A MB ANNIO",
+        "codigo": "CA_MAS000085",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO ANNIO",
+        "codigo": "CA_MAS000089",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS ANNIO",
+        "codigo": "CA_MAS000093",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "TOTAL DESPACHOS 1 ANNIO",
+        "codigo": "CA_MAS000097",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "DESPACHOS CPO IP ANNIO",
+        "codigo": "CA_MAS000101",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "DESPACHOS CPO MB  ANNIO",
+        "codigo": "CA_MAS000105",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "DESPACHOS CPO NO CERTIFICADO  ANNIO",
+        "codigo": "CA_MAS000109",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "DESPACHOS ENTRE PALMAS (KG) ANNIO",
+        "codigo": "CA_MAS000113",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "MANTENIMIENTO  ANIO",
+        "codigo": "CA_MAS000117",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP ANNIO",
+        "codigo": "CA_MAS000121",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO ANNIO",
+        "codigo": "CA_MAS000125",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS ANNIO",
+        "codigo": "CA_MAS000129",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP ANNIO",
+        "codigo": "CA_MAS000133",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB ANNIO",
+        "codigo": "CA_MAS000137",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO ANNIO",
+        "codigo": "CA_MAS000141",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 ANNIO",
+        "codigo": "CA_MAS000145",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "% TEA (ACEITE/RFF) ANNIO",
+        "codigo": "CA_MAS000149",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) ANNIO",
+        "codigo": "CA_MAS000153",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP ANNIO",
+        "codigo": "CA_MAS000157",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTRIO ALMENDRA INICIAL MB ANNIO",
+        "codigo": "CA_MAS000161",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) AANIO",
+        "codigo": "CA_MAS000165",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 ANNIO",
+        "codigo": "CA_MAS000169",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG)  ANNIO",
+        "codigo": "CA_MAS000173",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG)  ANNIO",
+        "codigo": "CA_MAS000177",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) MES",
+        "codigo": "CA_MAS000181",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 ANNIO",
+        "codigo": "CA_MAS000185",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) ANNIO",
+        "codigo": "CA_MAS000189",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "DESPACHOS ALMENDRA MB  ANNIO",
+        "codigo": "CA_MAS000193",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) ANNIO",
+        "codigo": "CA_MAS000197",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "TOTAL DESPACHADO SANTANA  ANNIO",
+        "codigo": "CA_MAS000201",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP ANNIO",
+        "codigo": "CA_MAS000205",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA ANNIO",
+        "codigo": "CA_MAS000209",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) ANNIO",
+        "codigo": "CA_MAS000213",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "INVENTARIO FINAL TOTAL (KG)  ANNIO",
+        "codigo": "CA_MAS000217",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:5",
+        "valor": ""
+      },
+      {
+        "id_form": 1700,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% ANNIO",
+        "codigo": "CA_MAS000221",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:5",
+        "valor": ""
+      }
+    ]
+  ],
+  "listaDeLiqudados": []
+}

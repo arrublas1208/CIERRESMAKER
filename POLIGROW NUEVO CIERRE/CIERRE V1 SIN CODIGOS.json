@@ -1,0 +1,4833 @@
+{
+  "bloquearFuentes": [],
+  "validarDataForms": [
+    {
+      "tipoFuente": "form",
+      "id": 465,
+      "relacion": {
+        "codigo": "FECHINV",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 539,
+      "relacion": {
+        "codigo": "DOPRFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 522,
+      "relacion": {
+        "codigo": "FECHINVALM",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 542,
+      "relacion": {
+        "codigo": "SEINFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 503,
+      "relacion": {
+        "codigo": "FORMFECHCAL",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 557,
+      "relacion": {
+        "codigo": "CTCLAFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 742,
+      "relacion": {
+        "codigo": "HRINFCH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 546,
+      "relacion": {
+        "codigo": "RPPPFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 542,
+      "relacion": {
+        "codigo": "SEINFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 737,
+      "relacion": {
+        "codigo": "GYGEFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 747,
+      "relacion": {
+        "codigo": "FECHANCALALM",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 553,
+      "relacion": {
+        "codigo": "CNESTFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 735,
+      "relacion": {
+        "codigo": "DBGFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 735,
+      "relacion": {
+        "codigo": "DBGFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 503,
+      "relacion": {
+        "codigo": "FORMFECHCAL",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 557,
+      "relacion": {
+        "codigo": "CTCLAFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 742,
+      "relacion": {
+        "codigo": "HRINFCH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 546,
+      "relacion": {
+        "codigo": "RPPPFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 542,
+      "relacion": {
+        "codigo": "SEINFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 737,
+      "relacion": {
+        "codigo": "GYGEFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 747,
+      "relacion": {
+        "codigo": "FECHANCALALM",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 553,
+      "relacion": {
+        "codigo": "CNESTFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 735,
+      "relacion": {
+        "codigo": "DBGFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 735,
+      "relacion": {
+        "codigo": "DBGFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 503,
+      "relacion": {
+        "codigo": "FORMFECHCAL",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 557,
+      "relacion": {
+        "codigo": "CTCLAFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 742,
+      "relacion": {
+        "codigo": "HRINFCH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 546,
+      "relacion": {
+        "codigo": "RPPPFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 542,
+      "relacion": {
+        "codigo": "SEINFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 737,
+      "relacion": {
+        "codigo": "GYGEFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 747,
+      "relacion": {
+        "codigo": "FECHANCALALM",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 553,
+      "relacion": {
+        "codigo": "CNESTFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 735,
+      "relacion": {
+        "codigo": "DBGFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 735,
+      "relacion": {
+        "codigo": "DBGFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    },
+    {
+      "tipoFuente": "form",
+      "id": 734,
+      "relacion": {
+        "codigo": "RLBFECH",
+        "id": 0,
+        "nombre": ""
+      }
+    }
+  ],
+  "formularioC": [
+    {
+      "fecha_cierre": "FECHINFPOL",
+      "cod_fechas": [
+        {
+          "id_form": 1697,
+          "cod_fecha": "FECHINFPOL",
+          "tipo_val": "d"
+        },
+        {
+          "id_form": 580,
+          "cod_semana": "FECHSEM",
+          "cod_año": "FECHANIO",
+          "tipo_val": "s"
+        },
+        {
+          "id_form": 581,
+          "cod_mes": "FECHAMES",
+          "cod_año": "FECHANIIIO",
+          "tipo_val": "m"
+        },
+        {
+          "id_form": 582,
+          "cod_año": "FECHANIIIIO",
+          "tipo_val": "a"
+        }
+      ]
+    }
+  ],
+  "datosAG": [
+    [
+      {
+        "id_form": 580,
+        "label": "INVENTARIOINCIALRFF(KG)SEMANA",
+        "codigo": "CS_10003POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "8:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "TOTALRFFRECIBIDOPLANTA(KG)SEMANA",
+        "codigo": "CS_10007POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "9:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INGRESORFFPROPIOSEMANA",
+        "codigo": "CS_10011POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "10:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INGRESORFFALIADOSCERTIFICADOSSEMANA",
+        "codigo": "CS_10015POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "11:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INGRESORFFALIADOSNOCERTIFICADOSSEMANA",
+        "codigo": "CS_10019POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "12:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INGRESODERFFTERCEROSSEMANA",
+        "codigo": "CS_10023POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "13:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "RFFPROCESADO(KG)SEMANA",
+        "codigo": "CS_10027POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "14:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "RFFDESPACHOMAQUILA(KG)SEMANA",
+        "codigo": "CS_10031POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "15:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "RFFDESCARTADO(KG)SEMANA",
+        "codigo": "CS_10035POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "16:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INVENTARIOFINALRFF(KG)SEMANA",
+        "codigo": "CS_10039POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "17:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "MADUROSSEMANA",
+        "codigo": "CS_10043POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "21:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "VERDESSEMANA",
+        "codigo": "CS_10047POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "22:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "SOBREMADUROSEMANA",
+        "codigo": "CS_10051POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "23:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "PODRIDOSEMANA",
+        "codigo": "CS_10055POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "24:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "PEDLARGOSEMANA",
+        "codigo": "CS_10488POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "25:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INVENTARIOINICIALACEITECPO(KG)SEMANA",
+        "codigo": "CS_10060POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "29:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACEITEPRODUCIDOCPO(KG)SEMANA",
+        "codigo": "CS_10064POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "30:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACEITEDESPACHADOTOTALCPO(KG)SEMANA",
+        "codigo": "CS_10068POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "31:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACEITECPODESPACHADOIPSEMANA",
+        "codigo": "CS_10072POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "32:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACEITECPODESPACHADOMBSEMANA",
+        "codigo": "CS_10076POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "33:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACEITECPODESPACHADOCONVENCIONALSEMANA",
+        "codigo": "CS_10080POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "34:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "MERMAACEITE(KG)SEMANA",
+        "codigo": "CS_10413POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "35:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INVENTARIOFINALACEITECPO(KG)SEMANA",
+        "codigo": "CS_10416POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "36:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "%TEACPOSEMANA",
+        "codigo": "CS_10085POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "37:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACIDEZTANQUE1SEMANA",
+        "codigo": "CS_10089POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "41:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACIDEZTANQUE2SEMANA",
+        "codigo": "CS_10093POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "42:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACIDEZTANQUE3SEMANA",
+        "codigo": "CS_10097POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "43:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACIDEZTANQUE4SEMANA",
+        "codigo": "CS_10101POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "44:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "TOTALACIDEZTANQUESSEMANA",
+        "codigo": "CS_10105POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "45:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INVENTARIOINICIALALMENDRA(KG)SEMANA",
+        "codigo": "CS_10109POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "49:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ALMENDRAPRODUCIDA(KG)SEMANA",
+        "codigo": "CS_10113POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "50:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "TOTALALMENDRADESPACHADA(KG)SEMANA",
+        "codigo": "CS_10117POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "51:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "DESPACHOALMENDRAIPSEMANA",
+        "codigo": "CS_10121POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "52:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "DESPACHOALMENDRAMBSEMANA",
+        "codigo": "CS_10125POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "53:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "DESPACHOALMENDRACONVENCIONALSEMANA",
+        "codigo": "CS_10129POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "54:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "MERMAALMENDRASEMANA",
+        "codigo": "CS_10420POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "55:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "TRASLADO DE ALMENDRA A BODEGA SEMANA",
+        "codigo": "CS_10479POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "56:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INVENTARIOFINALALMENDRA(KG)SEMANA",
+        "codigo": "CS_10423POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "57:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "%ALMENDRARECUPERADASEMANA",
+        "codigo": "CS_10134POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "58:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CALIDADCPOACIDEZSEMANA",
+        "codigo": "CS_10142POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "66:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CALIDADCPOHUMEDADSEMANA",
+        "codigo": "CS_10146POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "67:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CALIDADCPOIMPUREZASSEMANA",
+        "codigo": "CS_10150POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "68:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CALIDADALMENDRAACIDEZSEMANA",
+        "codigo": "CS_10154POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "71:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CALIDADALMENDRAHUMEDADSEMANA",
+        "codigo": "CS_10158POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "72:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CALIDADALMENDRAIMPUREZASSEMANA",
+        "codigo": "CS_10162POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "73:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "TOTALHUMEDAD+IMPUREZASSEMANA",
+        "codigo": "CS_10427POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "74:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "%PERDIDASFIBRASSEMANA",
+        "codigo": "CS_10266POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "78:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "%PERDIDASTUSASEMANA",
+        "codigo": "CS_10270POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "79:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "%PERDIDASEFLUENTESSEMANA",
+        "codigo": "CS_10274POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "80:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "%PERDIDASNUEZSEMANA",
+        "codigo": "CS_10278POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "81:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "%PERDIDATOTALAC/RFFSEMANA",
+        "codigo": "CS_10282POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "82:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "%EFICIENCIAPLANTACPOSEMANA",
+        "codigo": "CS_10286POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "83:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "HORASPROGRAMADASSEMANA",
+        "codigo": "CS_10290POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "87:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "HORASEFECTIVASSEMANA",
+        "codigo": "CS_10294POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "88:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CONSUMODEAGUAM3SEMANA",
+        "codigo": "CS_10298POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "89:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CONSUMODECALDERASM3DIASEMANA",
+        "codigo": "CS_10302POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "90:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CONSUMODEENERGIAPLANTA(KW)SEMANA",
+        "codigo": "CS_10306POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "91:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CONSUMOVAPORCALDERASM3SEMANA",
+        "codigo": "CS_10310POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "92:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "AGUA(M3/TRFF)SEMANA",
+        "codigo": "CS_10314POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "93:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "AGUACALDERAS(M3/TRFF)SEMANA",
+        "codigo": "CS_10318POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "94:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ENERGIA(KW/TRFF)SEMANA",
+        "codigo": "CS_10322POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "95:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "KGVAPOR/KGRFFSEMANA",
+        "codigo": "CS_10326POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "96:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "KGVAPOR/HORAEFECTIVAPROCESADASEMANA",
+        "codigo": "CS_10330POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "97:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "HORASPRENSA1SEMANA",
+        "codigo": "CS_10349POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "108:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "HORASPRENSA2SEMANA",
+        "codigo": "CS_10353POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "109:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "HORASPRENSA3SEMANA",
+        "codigo": "CS_10357POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "110:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "HORASPRENSA4SEMANA",
+        "codigo": "CS_10361POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "111:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "TRHPRENSADOSEMANA",
+        "codigo": "CS_10365POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "112:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "EFICIENCIAREALPRENSASSEMANA",
+        "codigo": "CS_10369POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "113:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "INGRESOPOMEAPROCESOSEMANA",
+        "codigo": "CS_10431POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "117:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "SALIDADEAGUAAFERTIRRIEGOM3SEMANA",
+        "codigo": "CS_10435POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "118:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "DQOINGRESOAPLANTA(PPM)SEMANA",
+        "codigo": "CS_10439POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "119:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "DQOSALIDAAPLANTA(PPM)SEMANA",
+        "codigo": "CS_10373POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "120:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACEITEINGRESADOAPISCINAECUALIZADORA(MG/LT)SEMANA",
+        "codigo": "CS_10443POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "121:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "ACEITEACIDORECUPERADO(KG)SEMANA",
+        "codigo": "CS_10447POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "122:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "PRODUCCIÓNBIOGASM3SEMANA",
+        "codigo": "CS_10447POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "123:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CALIDADDEBIOGAS(%CH4)SEMANA",
+        "codigo": "CS_10451POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "124:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CONSUMODEBIOGASENGENERADORESM3SEMANA",
+        "codigo": "CS_10455POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "125:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CONSUMODEBIOGASENANTORCHAM3SEMANA",
+        "codigo": "CS_10459POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "126:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "%DEREMOCIÓNDQOSEMANA",
+        "codigo": "CS_10463POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "132:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CANTIDADBIOGASGENERADOM3/M3POMESEMANA",
+        "codigo": "CS_10467POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "133:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "PRODUCCIONKWPORGENERADORESGASSEMANA",
+        "codigo": "CS_10393POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "138:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "PRODUCCIONKWPORGENERADORESDIESELSEMANA",
+        "codigo": "CS_10397POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "139:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "PRODUCCIONTOTALDEKWSEMANA",
+        "codigo": "CS_10401POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "140:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "CONSUMODEACPMENGALONESSEMANA",
+        "codigo": "CS_10389POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "141:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "EFICIENCIAGENERADORESAGASKWH/M3BIOGÁSSEMANA",
+        "codigo": "CS_10471POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "146:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "EFICIENCIAGENERADORESDIESELKWH/GALÓNSEMANA",
+        "codigo": "CS_10475POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "147:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "PRODUCCIÓN(KW/TRFF)SEMANA",
+        "codigo": "CS_10405POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "148:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "EFICIENCIAREALPLANTASEMANA",
+        "codigo": "CS_10409POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "152:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "EFICIENCIAPLANTAHORASSEMANA",
+        "codigo": "CS_10476POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "153:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "DESPACHOS MERCADO EXPORTACIÓN (KG) SEMANA",
+        "codigo": "CS_10477POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "171:3",
+        "valor": ""
+      },
+      {
+        "id_form": 580,
+        "label": "DESPACHOS MERCADO NACIONAL (KG) SEMANA",
+        "codigo": "CS_10478POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "172:3",
+        "valor": ""
+      }
+    ],
+    [
+      {
+        "id_form": 581,
+        "label": "INVENTARIOINCIALRFF(KG)MES",
+        "codigo": "CM_10003POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "8:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "TOTALRFFRECIBIDOPLANTA(KG)MES",
+        "codigo": "CM_10007POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "9:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INGRESORFFPROPIOMES",
+        "codigo": "CM_10011POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "10:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INGRESORFFALIADOSCERTIFICADOSMES",
+        "codigo": "CM_10015POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "11:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INGRESORFFALIADOSNOCERTIFICADOSMES",
+        "codigo": "CM_10019POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "12:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INGRESODERFFTERCEROSMES",
+        "codigo": "CM_10023POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "13:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "RFFPROCESADO(KG)MES",
+        "codigo": "CM_10027POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "14:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "RFFDESPACHOMAQUILA(KG)MES",
+        "codigo": "CM_10031POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "15:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "RFFDESCARTADO(KG)MES",
+        "codigo": "CM_10035POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "16:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INVENTARIOFINALRFF(KG)MES",
+        "codigo": "CM_10039POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "17:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "MADUROSMES",
+        "codigo": "CM_10043POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "21:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "VERDESMES",
+        "codigo": "CM_10047POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "22:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "SOBREMADUROMES",
+        "codigo": "CM_10051POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "23:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "PODRIDOMES",
+        "codigo": "CM_10055POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "24:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "PEDLARGOMES",
+        "codigo": "CM_10489POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "25:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INVENTARIOINICIALACEITECPO(KG)MES",
+        "codigo": "CM_10060POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "29:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACEITEPRODUCIDOCPO(KG)MES",
+        "codigo": "CM_10064POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "30:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACEITEDESPACHADOTOTALCPO(KG)MES",
+        "codigo": "CM_10068POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "31:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACEITECPODESPACHADOIPMES",
+        "codigo": "CM_10072POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "32:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACEITECPODESPACHADOMBMES",
+        "codigo": "CM_10076POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "33:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACEITECPODESPACHADOCONVENCIONALMES",
+        "codigo": "CM_10080POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "34:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "MERMAACEITE(KG)MES",
+        "codigo": "CM_10413POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "35:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INVENTARIOFINALACEITECPO(KG)MES",
+        "codigo": "CM_10416POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "36:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "%TEACPOMES",
+        "codigo": "CM_10085POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "37:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACIDEZTANQUE1MES",
+        "codigo": "CM_10089POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "41:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACIDEZTANQUE2MES",
+        "codigo": "CM_10093POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "42:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACIDEZTANQUE3MES",
+        "codigo": "CM_10097POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "43:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACIDEZTANQUE4MES",
+        "codigo": "CM_10101POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "44:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "TOTALACIDEZTANQUESMES",
+        "codigo": "CM_10105POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "45:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INVENTARIOINICIALALMENDRA(KG)MES",
+        "codigo": "CM_10109POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "49:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ALMENDRAPRODUCIDA(KG)MES",
+        "codigo": "CM_10113POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "50:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "TOTALALMENDRADESPACHADA(KG)MES",
+        "codigo": "CM_10117POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "51:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "DESPACHOALMENDRAIPMES",
+        "codigo": "CM_10121POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "52:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "DESPACHOALMENDRAMBMES",
+        "codigo": "CM_10125POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "53:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "DESPACHOALMENDRACONVENCIONALMES",
+        "codigo": "CM_10129POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "54:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "MERMAALMENDRAMES",
+        "codigo": "CM_10420POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "55:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "TRASLADO DE ALMENDRA A BODEGA MES",
+        "codigo": "CM_10479POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "56:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INVENTARIOFINALALMENDRA(KG)MES",
+        "codigo": "CM_10423POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "57:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "%ALMENDRARECUPERADAMES",
+        "codigo": "CM_10134POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "58:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CALIDADCPOACIDEZMES",
+        "codigo": "CM_10142POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "66:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CALIDADCPOHUMEDADMES",
+        "codigo": "CM_10146POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "67:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CALIDADCPOIMPUREZASMES",
+        "codigo": "CM_10150POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "68:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CALIDADALMENDRAACIDEZMES",
+        "codigo": "CM_10154POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "71:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CALIDADALMENDRAHUMEDADMES",
+        "codigo": "CM_10158POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "72:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CALIDADALMENDRAIMPUREZASMES",
+        "codigo": "CM_10162POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "73:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "TOTALHUMEDAD+IMPUREZASMES",
+        "codigo": "CM_10427POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "74:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "%PERDIDASFIBRASMES",
+        "codigo": "CM_10266POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "78:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "%PERDIDASTUSAMES",
+        "codigo": "CM_10270POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "79:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "%PERDIDASEFLUENTESMES",
+        "codigo": "CM_10274POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "80:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "%PERDIDASNUEZMES",
+        "codigo": "CM_10278POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "81:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "%PERDIDATOTALAC/RFFMES",
+        "codigo": "CM_10282POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "82:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "%EFICIENCIAPLANTACPOMES",
+        "codigo": "CM_10286POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "83:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "HORASPROGRAMADASMES",
+        "codigo": "CM_10290POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "87:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "HORASEFECTIVASMES",
+        "codigo": "CM_10294POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "88:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CONSUMODEAGUAM3MES",
+        "codigo": "CM_10298POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "89:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CONSUMODECALDERASM3DIAMES",
+        "codigo": "CM_10302POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "90:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CONSUMODEENERGIAPLANTA(KW)MES",
+        "codigo": "CM_10306POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "91:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CONSUMOVAPORCALDERASM3MES",
+        "codigo": "CM_10310POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "92:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "AGUA(M3/TRFF)MES",
+        "codigo": "CM_10314POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "93:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "AGUACALDERAS(M3/TRFF)MES",
+        "codigo": "CM_10318POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "94:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ENERGIA(KW/TRFF)MES",
+        "codigo": "CM_10322POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "95:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "KGVAPOR/KGRFFMES",
+        "codigo": "CM_10326POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "96:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "KGVAPOR/HORAEFECTIVAPROCESADAMES",
+        "codigo": "CM_10330POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "97:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "HORASPRENSA1MES",
+        "codigo": "CM_10349POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "108:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "HORASPRENSA2MES",
+        "codigo": "CM_10353POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "109:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "HORASPRENSA3MES",
+        "codigo": "CM_10357POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "110:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "HORASPRENSA4MES",
+        "codigo": "CM_10361POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "111:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "TRHPRENSADOMES",
+        "codigo": "CM_10365POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "112:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "EFICIENCIAREALPRENSASMES",
+        "codigo": "CM_10369POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "113:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "INGRESOPOMEAPROCESOMES",
+        "codigo": "CM_10431POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "117:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "SALIDADEAGUAAFERTIRRIEGOM3MES",
+        "codigo": "CM_10435POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "118:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "DQOINGRESOAPLANTA(PPM)MES",
+        "codigo": "CM_10439POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "119:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "DQOSALIDAAPLANTA(PPM)MES",
+        "codigo": "CM_10373POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "120:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACEITEINGRESADOAPISCINAECUALIZADORA(MG/LT)MES",
+        "codigo": "CM_10443POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "121:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "ACEITEACIDORECUPERADO(KG)MES",
+        "codigo": "CM_10447POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "122:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "PRODUCCIÓNBIOGASM3MES",
+        "codigo": "CM_10447POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "123:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CALIDADDEBIOGAS(%CH4)MES",
+        "codigo": "CM_10451POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "124:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CONSUMODEBIOGASENGENERADORESM3MES",
+        "codigo": "CM_10455POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "125:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CONSUMODEBIOGASENANTORCHAM3MES",
+        "codigo": "CM_10459POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "126:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "%DEREMOCIÓNDQOMES",
+        "codigo": "CM_10463POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "132:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CANTIDADBIOGASGENERADOM3/M3POMEMES",
+        "codigo": "CM_10467POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "133:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "PRODUCCIONKWPORGENERADORESGASMES",
+        "codigo": "CM_10393POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "138:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "PRODUCCIONKWPORGENERADORESDIESELMES",
+        "codigo": "CM_10397POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "139:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "PRODUCCIONTOTALDEKWMES",
+        "codigo": "CM_10401POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "140:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "CONSUMODEACPMENGALONESMES",
+        "codigo": "CM_10389POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "141:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "EFICIENCIAGENERADORESAGASKWH/M3BIOGÁSMES",
+        "codigo": "CM_10471POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "146:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "EFICIENCIAGENERADORESDIESELKWH/GALÓNMES",
+        "codigo": "CM_10475POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "147:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "PRODUCCIÓN(KW/TRFF)MES",
+        "codigo": "CM_10405POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "148:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "EFICIENCIAREALPLANTAMES",
+        "codigo": "CM_10409POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "152:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "EFICIENCIAPLANTAHORASMES",
+        "codigo": "CM_10476POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "153:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "DESPACHOS MERCADO EXPORTACIÓN (KG) MES",
+        "codigo": "CM_10477POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "171:4",
+        "valor": ""
+      },
+      {
+        "id_form": 581,
+        "label": "DESPACHOS MERCADO NACIONAL (KG) MES",
+        "codigo": "CM_10478POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "172:4",
+        "valor": ""
+      }
+    ],
+    [
+      {
+        "id_form": 582,
+        "label": "INVENTARIOINCIALRFF(KG)AÑO",
+        "codigo": "CA_10003POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "8:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "TOTALRFFRECIBIDOPLANTA(KG)AÑO",
+        "codigo": "CA_10007POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "9:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INGRESORFFPROPIOAÑO",
+        "codigo": "CA_10011POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "10:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INGRESORFFALIADOSCERTIFICADOSAÑO",
+        "codigo": "CA_10015POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "11:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INGRESORFFALIADOSNOCERTIFICADOSAÑO",
+        "codigo": "CA_10019POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "12:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INGRESODERFFTERCEROSAÑO",
+        "codigo": "CA_10023POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "13:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "RFFPROCESADO(KG)AÑO",
+        "codigo": "CA_10027POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "14:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "RFFDESPACHOMAQUILA(KG)AÑO",
+        "codigo": "CA_10031POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "15:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "RFFDESCARTADO(KG)AÑO",
+        "codigo": "CA_10035POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "16:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INVENTARIOFINALRFF(KG)AÑO",
+        "codigo": "CA_10039POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "17:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "MADUROSAÑO",
+        "codigo": "CA_10043POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "21:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "VERDESAÑO",
+        "codigo": "CA_10047POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "22:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "SOBREMADUROAÑO",
+        "codigo": "CA_10051POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "23:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "PODRIDOAÑO",
+        "codigo": "CA_10055POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "24:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INVENTARIOINICIALACEITECPO(KG)AÑO",
+        "codigo": "CA_10060POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "29:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACEITEPRODUCIDOCPO(KG)AÑO",
+        "codigo": "CA_10064POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "30:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACEITEDESPACHADOTOTALCPO(KG)AÑO",
+        "codigo": "CA_10068POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "31:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACEITECPODESPACHADOIPAÑO",
+        "codigo": "CA_10072POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "32:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACEITECPODESPACHADOMBAÑO",
+        "codigo": "CA_10076POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "33:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACEITECPODESPACHADOCONVENCIONALAÑO",
+        "codigo": "CA_10080POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "34:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "MERMAACEITE(KG)AÑO",
+        "codigo": "CA_10413POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "35:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INVENTARIOFINALACEITECPO(KG)AÑO",
+        "codigo": "CA_10416POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "36:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "%TEACPOAÑO",
+        "codigo": "CA_10085POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "37:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACIDEZTANQUE1AÑO",
+        "codigo": "CA_10089POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "41:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACIDEZTANQUE2AÑO",
+        "codigo": "CA_10093POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "42:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACIDEZTANQUE3AÑO",
+        "codigo": "CA_10097POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "43:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACIDEZTANQUE4AÑO",
+        "codigo": "CA_10101POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "44:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "TOTALACIDEZTANQUESAÑO",
+        "codigo": "CA_10105POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "45:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INVENTARIOINICIALALMENDRA(KG)AÑO",
+        "codigo": "CA_10109POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "49:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ALMENDRAPRODUCIDA(KG)AÑO",
+        "codigo": "CA_10113POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "50:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "TOTALALMENDRADESPACHADA(KG)AÑO",
+        "codigo": "CA_10117POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "51:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "DESPACHOALMENDRAIPAÑO",
+        "codigo": "CA_10121POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "52:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "DESPACHOALMENDRAMBAÑO",
+        "codigo": "CA_10125POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "53:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "DESPACHOALMENDRACONVENCIONALAÑO",
+        "codigo": "CA_10129POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "54:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "MERMAALMENDRAAÑO",
+        "codigo": "CA_10420POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "55:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "TRASLADO DE ALMENDRA A BODEGA AÑO",
+        "codigo": "CA_10479POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "56:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INVENTARIOFINALALMENDRA(KG)AÑO",
+        "codigo": "CA_10423POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "57:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "%ALMENDRARECUPERADAAÑO",
+        "codigo": "CA_10134POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "58:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CALIDADCPOACIDEZAÑO",
+        "codigo": "CA_10142POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "66:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CALIDADCPOHUMEDADAÑO",
+        "codigo": "CA_10146POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "67:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CALIDADCPOIMPUREZASAÑO",
+        "codigo": "CA_10150POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "68:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CALIDADALMENDRAACIDEZAÑO",
+        "codigo": "CA_10154POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "71:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CALIDADALMENDRAHUMEDADAÑO",
+        "codigo": "CA_10158POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "72:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CALIDADALMENDRAIMPUREZASAÑO",
+        "codigo": "CA_10162POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "73:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "TOTALHUMEDAD+IMPUREZASAÑO",
+        "codigo": "CA_10427POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "74:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "%PERDIDASFIBRASAÑO",
+        "codigo": "CA_10266POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "78:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "%PERDIDASTUSAAÑO",
+        "codigo": "CA_10270POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "79:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "%PERDIDASEFLUENTESAÑO",
+        "codigo": "CA_10274POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "80:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "%PERDIDASNUEZAÑO",
+        "codigo": "CA_10278POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "81:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "%PERDIDATOTALAC/RFFAÑO",
+        "codigo": "CA_10282POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "82:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "%EFICIENCIAPLANTACPOAÑO",
+        "codigo": "CA_10286POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "83:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "HORASPROGRAMADASAÑO",
+        "codigo": "CA_10290POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "87:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "HORASEFECTIVASAÑO",
+        "codigo": "CA_10294POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "88:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CONSUMODEAGUAM3AÑO",
+        "codigo": "CA_10298POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "89:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CONSUMODECALDERASM3DIAAÑO",
+        "codigo": "CA_10302POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "90:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CONSUMODEENERGIAPLANTA(KW)AÑO",
+        "codigo": "CA_10306POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "91:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CONSUMOVAPORCALDERASM3AÑO",
+        "codigo": "CA_10310POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "92:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "AGUA(M3/TRFF)AÑO",
+        "codigo": "CA_10314POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "93:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "AGUACALDERAS(M3/TRFF)AÑO",
+        "codigo": "CA_10318POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "94:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ENERGIA(KW/TRFF)AÑO",
+        "codigo": "CA_10322POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "95:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "KGVAPOR/KGRFFAÑO",
+        "codigo": "CA_10326POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "96:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "KGVAPOR/HORAEFECTIVAPROCESADAAÑO",
+        "codigo": "CA_10330POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "97:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "HORASPRENSA1AÑO",
+        "codigo": "CA_10349POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "108:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "HORASPRENSA2AÑO",
+        "codigo": "CA_10353POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "109:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "HORASPRENSA3AÑO",
+        "codigo": "CA_10357POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "110:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "HORASPRENSA4AÑO",
+        "codigo": "CA_10361POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "111:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "TRHPRENSADOAÑO",
+        "codigo": "CA_10365POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "112:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "EFICIENCIAREALPRENSASAÑO",
+        "codigo": "CA_10369POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "113:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "INGRESOPOMEAPROCESOAÑO",
+        "codigo": "CA_10431POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "117:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "SALIDADEAGUAAFERTIRRIEGOM3AÑO",
+        "codigo": "CA_10435POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "118:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "DQOINGRESOAPLANTA(PPM)AÑO",
+        "codigo": "CA_10439POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "119:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "DQOSALIDAAPLANTA(PPM)AÑO",
+        "codigo": "CA_10373POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "120:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACEITEINGRESADOAPISCINAECUALIZADORA(MG/LT)AÑO",
+        "codigo": "CA_10443POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "121:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "ACEITEACIDORECUPERADO(KG)AÑO",
+        "codigo": "CA_10447POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "122:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "PRODUCCIÓNBIOGASM3AÑO",
+        "codigo": "CA_10447POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "123:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CALIDADDEBIOGAS(%CH4)AÑO",
+        "codigo": "CA_10451POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "124:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CONSUMODEBIOGASENGENERADORESM3AÑO",
+        "codigo": "CA_10455POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "125:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CONSUMODEBIOGASENANTORCHAM3AÑO",
+        "codigo": "CA_10459POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "126:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "%DEREMOCIÓNDQOAÑO",
+        "codigo": "CA_10463POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "132:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CANTIDADBIOGASGENERADOM3/M3POMEAÑO",
+        "codigo": "CA_10467POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "133:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "PRODUCCIONKWPORGENERADORESGASAÑO",
+        "codigo": "CA_10393POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "138:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "PRODUCCIONKWPORGENERADORESDIESELAÑO",
+        "codigo": "CA_10397POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "139:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "PRODUCCIONTOTALDEKWAÑO",
+        "codigo": "CA_10401POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "140:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "CONSUMODEACPMENGALONESAÑO",
+        "codigo": "CA_10389POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "141:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "EFICIENCIAGENERADORESAGASKWH/M3BIOGÁSAÑO",
+        "codigo": "CA_10471POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "146:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "EFICIENCIAGENERADORESDIESELKWH/GALÓNAÑO",
+        "codigo": "CA_10475POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "147:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "PRODUCCIÓN(KW/TRFF)AÑO",
+        "codigo": "CA_10405POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "148:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "EFICIENCIAREALPLANTAAÑO",
+        "codigo": "CA_10409POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "152:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "EFICIENCIAPLANTAHORASAÑO",
+        "codigo": "CA_10476POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "153:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "DESPACHOS MERCADO EXPORTACIÓN (KG) AÑO",
+        "codigo": "CA_10477POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "171:5",
+        "valor": ""
+      },
+      {
+        "id_form": 582,
+        "label": "DESPACHOS MERCADO NACIONAL (KG) AÑO",
+        "codigo": "CA_10478POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "172:5",
+        "valor": ""
+      }
+    ],
+    [
+      {
+        "id_form": 579,
+        "label": "FECHACIERREPROCESO",
+        "codigo": "CD_10001POLI",
+        "tipo": 3,
+        "deci": 0,
+        "posicion": "4:1",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) DIA",
+        "codigo": "CD_10002POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "8:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "8:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) MES ",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "8:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL  RFF TOLVA(KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "8:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) DIA",
+        "codigo": "CD_10006POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "9:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "9:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "9:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL RFF TOLVA CERIFICADO (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "9:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) DIA",
+        "codigo": "CD_10010POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "10:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "10:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "10:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL  RFFTOLVA  NO CERTIFICADO (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "10:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) DIA",
+        "codigo": "CD_10014POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "11:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "11:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "11:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO RFF RECIBIDO EN PLANTA TOTAL (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "11:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO INGRESADO CERTIFICADO  DIA",
+        "codigo": "CD_10018POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "12:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO INGRESADO CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "12:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO INGRESADO CERTIFICADO  MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "12:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO INGRESADO CERTIFICADO  ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "12:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO INGRESADO NO CERTIFICADO DIA",
+        "codigo": "CD_10022POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "13:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO INGRESADO NO CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "13:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO INGRESADO NO CERTIFICADO  MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "13:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO INGRESADO NO CERTIFICADO ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "13:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADO (KG) DIA",
+        "codigo": "CD_10026POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "14:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADO (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "14:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADO (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "14:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADO (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "14:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO DIA",
+        "codigo": "CD_10030POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "15:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "15:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "15:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADA (KG) CERTIFICADO ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "15:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO DIA",
+        "codigo": "CD_10034POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "16:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "16:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "16:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "FRUTO PROCESADA (KG) NO CERTIFICADO ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "16:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "LIMPIEZA DE TANQUE DIA",
+        "codigo": "CD_10038POLI",
+        "tipo": 2,
+        "deci": 0,
+        "posicion": "17:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "LIMPIEZA DE TANQUE SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "17:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "LIMPIEZA DE TANQUE MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "17:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "LIMPIEZA DE TANQUE  ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "17:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "SALDO FRUTO CERTIFICADO DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "SALDO FRUTO CERTIFICADO SEAMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "SALDO FRUTO CERTIFICADO MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "SALDO FRUTO CERTIFICADO ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "18:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "SALDO FRUTO NO CERTIFICADO DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "SALDO FRUTO NO CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "SALDO FRUTO NO CERTIFICADO MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "SALDO FRUTO NO CERTIFICADO ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "19:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL 1(KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL 1(KG)  SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL 1(KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL 1(KG)  ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "20:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE 1 KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "24:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PEDLARGOAÑO",
+        "codigo": "CA_10490POLI",
+        "tipo": 2,
+        "deci": 2,
+        "posicion": "25:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO IP ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "25:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE(KG)CPO MB ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "26:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO  MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ACEITE (KG)CPO NO CERTIFICADO  ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "27:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INV INICIAL MB + NC DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INV INICIAL MB + NC SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INV INICIAL MB + NC MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INV INICIAL MB + NC ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "28:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ACEITE (KG) (MEDIDA TANQUE) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "29:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP SEAMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION  TANQUE CERTIFICADO ACEITE  IP ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "30:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION ACEITE  TANQUE A MB DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION ACEITE  TANQUE A MB SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION ACEITE  TANQUE A MB MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION ACEITE  TANQUE A MB ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "31:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION  ACEITE  NO CERTIFICADO ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "32:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCION (KG) MAQUILA TANQUE ENTRE PALMAS ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "33:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL DESPACHOS 1 DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL DESPACHOS 1 SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL DESPACHOS 1 MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL DESPACHOS 1 ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "34:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO IP DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO IP SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO IP MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO IP ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "35:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO MB  DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO MB SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO MB MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO MB ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "36:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO NO CERTIFICADO  DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO NO CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO NO CERTIFICADO MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS CPO NO CERTIFICADO  ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "37:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ENTRE PALMAS (KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ENTRE PALMAS (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ENTRE PALMAS (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ENTRE PALMAS (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "38:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "39:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  DE TANQUE CPO IP ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "40:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "MANTENIMIENTO  DE TANQUE CPO NO CERTIFICADO ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "41:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) ENTREPALMAS ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "42:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO IP ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "43:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO  MB ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "44:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL(KG) TANQUE POLIGROW CPO NO CERTIFICADO ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "45:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ACEITE (KG) 1 ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "46:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "% TEA (ACEITE/RFF) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "% TEA (ACEITE/RFF) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "% TEA (ACEITE/RFF) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "% TEA (ACEITE/RFF) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "47:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ALEMBRA  (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "51:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO INICIAL ALMENDRA CERTIFICADO IP ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "52:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTRIO ALMENDRA INICIAL MB DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTRIO ALMENDRA INICIAL MB SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTRIO ALMENDRA INICIAL MB MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTRIO ALMENDRA INICIAL MB ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "53:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO ALMENDRA INICIAL NO CERTIFICADO(KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "54:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA (KG) 1 ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "55:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG)  DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO IP  (KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "56:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA CERTIFICADO MB  (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "57:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "PRODUCCIÓN ALMENDRA NO CERTIFACADO (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "58:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL ALMENDRA  DESPACHOS 2 ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "59:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ALMENDRA CERTIFICADO IP (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "60:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ALMENDRA MB DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ALMENDRA MB SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ALMENDRA MB MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOS ALMENDRA MB ANIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "61:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "DESPACHOSALMENDRA  NO CERTIFACADO  (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "62:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL DESPACHADO SANTANA DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL DESPACHADO SANTANA  SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL DESPACHADO SANTANA MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "TOTAL DESPACHADO SANTANA ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "63:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA  CERTIFICADO IP ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "64:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA MB DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA MB SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA MB MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA MB ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "65:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL ALMENDRA CONVENCIONAL (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "66:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL (KG) DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL (KG) SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL (KG) MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "INVENTARIO FINAL TOTAL (KG) ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "67:5",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% DIA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:2",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% SEMANA",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:3",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% MES",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:4",
+        "valor": ""
+      },
+      {
+        "id_form": 579,
+        "label": "% RECUPERACIÓN (ALMENDRA/RFF) > 4,5% ANNIO",
+        "codigo": "",
+        "tipo": 0,
+        "deci": 0,
+        "posicion": "68:5",
+        "valor": ""
+      }
+    ]
+  ],
+  "listaDeLiqudados": []
+}

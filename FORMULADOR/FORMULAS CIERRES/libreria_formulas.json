@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "rows": [
+    {
+      "name": "INVENTARIO INICIAL ARICHE",
+      "formulas": {
+        "DIA": "fltFLoatTablaDinamica(''+ ( $CD_10639BALMO,FECHBALAMORI,dataLast$ ) + '',\"float\",2)",
+        "SEMANA": "fltFLoatTablaDinamica(''+ ( $CD_10639BALMO,FECHBALAMORI,dataLast$ + $CD_10625BALMO,FECHBALAMORI,dataLast,s,suma$) + '',\"float\",2)",
+        "MES": "fltFLoatTablaDinamica(''+ ( $CD_10639BALMO,FECHBALAMORI,dataLast$ + $CD_10625BALMO,FECHBALAMORI,dataLast,m,suma$) + '',\"float\",2)",
+        "AÑO": "fltFLoatTablaDinamica(''+ ( $CD_10639BALMO,FECHBALAMORI,dataLast$ + $CD_10625BALMO,FECHBALAMORI,dataLast,a,suma$) + '',\"float\",2)"
+      }
+    }, 
+    {
+      "name": "ARICHE - OBTENIDO",
+      "formulas": {
+        "DIA": "fltFLoatTablaDinamica(''+ ( ( <T.sumaTiqueteBascula,sumaPesoTotal,fechaproceso:[0~dataLast~C_fechaCorta]~ids_productos:18~tipomovimiento:2~> ) ) + '',\"float\",2)",
+        "SEMANA": "fltFLoatTablaDinamica(''+ ( ($CD_10637BALMO,FECHBALAMORI,dataLast,s,suma$ + ( <T.sumaTiqueteBascula,sumaPesoTotal,fechaproceso:[0~dataLast~C_fechaCorta]~ids_productos:18~tipomovimiento:2~> )) ) + '',\"float\",2)",
+        "MES": "fltFLoatTablaDinamica(''+ ( ($CD_10637BALMO,FECHBALAMORI,dataLast,m,suma$ + ( <T.sumaTiqueteBascula,sumaPesoTotal,fechaproceso:[0~dataLast~C_fechaCorta]~ids_productos:18~tipomovimiento:2~> )) ) + '',\"float\",2)",
+        "AÑO": "fltFLoatTablaDinamica(''+ ( ($CD_10637BALMO,FECHBALAMORI,dataLast,a,suma$ + ( <T.sumaTiqueteBascula,sumaPesoTotal,fechaproceso:[0~dataLast~C_fechaCorta]~ids_productos:18~tipomovimiento:2~> )) ) + '',\"float\",2)"
+      }
+    },
+    {
+      "name": "ARICHE DESPACHADO",
+      "formulas": {
+        "DIA": "fltFLoatTablaDinamica(''+ ( ( <T.sumaTiqueteBascula,sumaPesoTotal,fechaproceso:[0~dataLast~C_fechaCorta]~ids_productos:18~tipomovimiento:3~> ) ) + '',\"float\",2)",
+        "SEMANA": "fltFLoatTablaDinamica(''+ ( ($CD_10633BALMO,FECHBALAMORI,dataLast,s,suma$ +( <T.sumaTiqueteBascula,sumaPesoTotal,fechaproceso:[0~dataLast~C_fechaCorta]~ids_productos:18~tipomovimiento:3~> )) ) + '',\"float\",2)",
+        "MES": "fltFLoatTablaDinamica(''+ ( ($CD_10633BALMO,FECHBALAMORI,dataLast,m,suma$ +( <T.sumaTiqueteBascula,sumaPesoTotal,fechaproceso:[0~dataLast~C_fechaCorta]~ids_productos:18~tipomovimiento:3~> )) ) + '',\"float\",2)",
+        "AÑO": "fltFLoatTablaDinamica(''+ ( ($CD_10633BALMO,FECHBALAMORI,dataLast,a,suma$ +( <T.sumaTiqueteBascula,sumaPesoTotal,fechaproceso:[0~dataLast~C_fechaCorta]~ids_productos:18~tipomovimiento:3~> )) ) + '',\"float\",2)"
+      }
+    },
+    {
+      "name": "TOTAL INVENTARIO FINAL ARICHE (KG)",
+      "formulas": {
+        "DIA": "",
+        "SEMANA": "",
+        "MES": "",
+        "AÑO": ""
+      }
+    }
+  ]
+}
