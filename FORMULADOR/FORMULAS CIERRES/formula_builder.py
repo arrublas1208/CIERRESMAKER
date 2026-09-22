@@ -879,6 +879,9 @@ class FormulaBuilder(QMainWindow):
         tabs.addTab(self.library_tab, "📚 Librería de Fórmulas")
         self.excel_tab = ExcelExprTab(self)
         tabs.addTab(self.excel_tab, "∑  Unir celdas (tipo Excel)")
+        from importador_cierre import ImportadorCierreTab
+        self.cierre_tab = ImportadorCierreTab(self)
+        tabs.addTab(self.cierre_tab, "🔎 Detectar cierre (elements)")
 
         return tabs
 
