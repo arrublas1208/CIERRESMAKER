@@ -14,6 +14,7 @@ comparten/usan la misma fuente quedan marcadas como "requiere actualización".
 Solo depende de PySide6 y la stdlib.
 """
 
+
 import io
 import json
 import os
