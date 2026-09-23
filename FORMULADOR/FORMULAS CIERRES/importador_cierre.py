@@ -24,7 +24,7 @@ from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QTableWidget,
     QTableWidgetItem, QHeaderView, QAbstractItemView, QFileDialog, QSplitter,
     QListWidget, QListWidgetItem, QGroupBox, QTextEdit, QDialog,
-    QDialogButtonBox, QMessageBox, QSizePolicy,
+    QDialogButtonBox, QMessageBox, QSizePolicy, QLineEdit, QCheckBox,
 )
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor, QBrush
@@ -328,6 +328,26 @@ class ImportadorCierreTab(QWidget):
         b_reset.setStyleSheet(self._btn("", "#7A828E", "#3A3F48"))
         b_reset.clicked.connect(self._reset_ediciones)
 
+        # ── Buscador de fragmento de fórmula ──
+        lbl_bus = QLabel("🔎")
+        lbl_bus.setStyleSheet("color:#58A6FF; font-size:13px;")
+
+        self.search_edit = QLineEdit()
+        self.search_edit.setPlaceholderText("Buscar fracción en la fórmula…  (ej: 0.96, dataLast, C_742)")
+        self.search_edit.setClearButtonEnabled(True)
+        self.search_edit.setMinimumWidth(260)
+        self.search_edit.textChanged.connect(self._apply_filter)
+
+        self.chk_dia = QCheckBox("Solo DÍA")
+        self.chk_dia.setStyleSheet("color:#8B949E; font-size:11px; spacing:6px;")
+        self.chk_dia.toggled.connect(self._apply_filter)
+
+        b_limpiar = QPushButton("✕")
+        b_limpiar.setFixedSize(26, 26)
+        b_limpiar.setStyleSheet(self._btn("", "#7A828E", "#3A3F48", padding="1px", fs=10))
+        b_limpiar.setToolTip("Limpiar búsqueda")
+        b_limpiar.clicked.connect(self._clear_filter)
+
         spacer = QWidget()
         spacer.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
 
@@ -337,6 +357,10 @@ class ImportadorCierreTab(QWidget):
         lay.addWidget(b_open)
         lay.addWidget(b_integridad)
         lay.addWidget(b_reset)
+        lay.addWidget(lbl_bus)
+        lay.addWidget(self.search_edit)
+        lay.addWidget(self.chk_dia)
+        lay.addWidget(b_limpiar)
         lay.addWidget(spacer)
         lay.addWidget(self.lbl_status)
         return bar
@@ -476,13 +500,42 @@ class ImportadorCierreTab(QWidget):
             self.current_sheet = 0
         sheet = self.sheets[self.current_sheet]
         self.records = extract_formulas(sheet)
+        self._visible = list(range(len(self.records)))
         self._fill_table()
 
     # ── Tabla ─────────────────────────────────
+    def _apply_filter(self):
+        """Filtra la tabla por el fragmento escrito, opcionalmente solo DÍA."""
+        if not getattr(self, "records", None):
+            return
+        q = self.search_edit.text().strip().lower()
+        solo_dia = self.chk_dia.isChecked()
+        if not q and not solo_dia:
+            self._visible = list(range(len(self.records)))
+        else:
+            vis = []
+            for i, rec in enumerate(self.records):
+                if solo_dia and rec["temp"] != "DIA":
+                    continue
+                if q and q not in rec["text"].lower() and q not in rec["name"].lower():
+                    continue
+                vis.append(i)
+            self._visible = vis
+        self._fill_table()
+
+    def _clear_filter(self):
+        self.search_edit.clear()
+        self.chk_dia.setChecked(False)
+
     def _fill_table(self):
-        prev_idx = self._selected_index()
+        sel_i = None
+        cur = self._selected_index()
         self.table.setRowCount(0)
-        for i, rec in enumerate(self.records):
+        visible = getattr(self, "_visible", None)
+        if visible is None:
+            visible = list(range(len(self.records)))
+        for row, i in enumerate(visible):
+            rec = self.records[i]
             r = self.table.rowCount()
             self.table.insertRow(r)
             items = [
@@ -502,8 +555,10 @@ class ImportadorCierreTab(QWidget):
                 if c == 4:
                     it.setForeground(QBrush(self._estado_color(rec["estado"])))
                 self.table.setItem(r, c, it)
-        if prev_idx is not None and prev_idx >= 0 and prev_idx < self.table.rowCount():
-            self.table.setCurrentCell(prev_idx, 0)
+            if i == cur:
+                sel_i = row
+        if sel_i is not None:
+            self.table.setCurrentCell(sel_i, 0)
         self._colorize()
 
     def _estado_color(self, estado):
@@ -594,8 +649,13 @@ class ImportadorCierreTab(QWidget):
 
     def _goto(self, item):
         j = item.data(Qt.ItemDataRole.UserRole)
-        self.table.setCurrentCell(j, 0)
-        self.table.scrollToItem(self.table.item(j, 0))
+        if not hasattr(self, "_visible"):
+            self._visible = list(range(len(self.records)))
+        for row, idx in enumerate(self._visible):
+            if idx == j:
+                self.table.setCurrentCell(row, 0)
+                self.table.scrollToItem(self.table.item(row, 0))
+                break
         self._colorize()
 
     # ── Edición ───────────────────────────────
@@ -607,10 +667,12 @@ class ImportadorCierreTab(QWidget):
         self._edit_idx(idx)
 
     def _edit_record(self, r, c):
-        """Llamado por cellDoubleClicked: la fila r == índice de registro."""
-        if not (0 <= r < len(self.records)):
+        """cellDoubleClicked: r es la fila visual; se mapea al índice original."""
+        if not hasattr(self, "_visible"):
+            self._visible = list(range(len(self.records)))
+        if not (0 <= r < len(self._visible)):
             return
-        self._edit_idx(r)
+        self._edit_idx(self._visible[r])
 
     def _edit_idx(self, idx):
         rec = self.records[idx]
@@ -627,7 +689,10 @@ class ImportadorCierreTab(QWidget):
         rec["estado"] = "MODIFICADA"
         self._recompute_integridad()
         self._fill_table()
-        self.table.setCurrentCell(idx, 0)
+        for row, i in enumerate(self._visible):
+            if i == idx:
+                self.table.setCurrentCell(row, 0)
+                break
         self._refresh_detail()
         self.lbl_status.setText(
             f"Fórmula {rec['a1']} modificada → se re-calcularon las dependencias.")
